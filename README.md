@@ -1,10 +1,10 @@
  > As you complete each section you **must** remove the prompt text. Every *turnin* of this project includes points for formatting of this README so keep it clean and keep it up to date. 
  > Prompt text is any lines beginning with "\>"
  > Replace anything between \<...\> with your project specifics and remove angle brackets. For example, you need to name your project and replace the header right below this line with that title (no angle brackets). 
-# \<Project title\>
+# Down With The System
  > Your author list below should include links to all members GitHub (remove existing author).
  
- > Authors: \<[Jeffrey McDaniel](https://github.com/jmcda001)\>
+ > Authors: [Jeffrey Hata](https://github.com/Jeff591), [Cameron Fong](https://github.com/CameronSF), [Pedro Gonzalez](https://github.com/pgonz028), [Nathan Wong](https://github.com/nathanw1510)  
  
  > You will be forming a group of **FOUR** students and working on an interesting project. The project has 4 phases, each one with specific requirements. A list of proposed project ideas that have been successful in previous quarters is listed in the project specifications document on Canvas. You can select an idea from the list, start thinking about the features you will implement, what design patterns can help you implement them, and why. If you want to propose your own original idea, you will have to contact an instructor to discuss the project and obtain written permission before you submit your project proposal (Phase 1). Your project needs to implement at least two design patterns iteratively, which you will have to justify for later phases.The project work should be divided almost equally among team members and each member is expected to work on at least one design pattern (more than one partner may work on a pattern) and some of its test cases. You can of course help each other, but it needs to be clear who will be responsible for which patterns and for which features. Additionally, you are expected to follow Scrum patterns, specifically the use of a Scrum (Project) board, Sprints, and Scrum meetings. While Daily Scrums are not required we highly recommend you practice them too.
  
@@ -19,12 +19,20 @@
 > * All project phases are to be submitted to this GitHub repository. You should modify this README file to reflect the different phases of the project. In addition, you should regularly hold sprint meetings with your group. You will need to hold one check-in meeting with your lab TA in addition to the final demo.
 
 ## Project Description
- > Your project description should summarize the project you are proposing. Be sure to include:
  > * Why is it important or interesting to you?
+ >   * We find this project interesting because many of us enjoy playing video games and we are interested in the game making process. Some of us have coded text-based games in the past and we want to further our game design and development knowledge.  
  > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
- >   * [toolname](link) - Short description
+ >   * [Replit](replit.com) - an online IDE that allows programmers to collaborate simultaneously on the same project. This will help make collaboration more efficient if multiple users need to work on the same files. The downside to this program is that the stability of its connection to the server it is hosted on can be unreliable. 
+ >   * [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/): a program that allows programmers to use git commands on their local machine. It also allows programmers to send and receive code from their local repositories, and from Github. 
+ >   * [Github](github.com) internet cloud used to store, manage, track, and control changes to projects and their respective code. We are using github in order to store our code onto one location, as well as be able to use the kanban feature on github to track the progress of features in our game 
+ >   * [Google Docs](docs.google.com): a text editor that allows live collaboration between multiple users. This program will help us brainstorm ideas, create design documents, and store other resources that might help us in the creation of our game. 
  > * What will be the input/output of your project? What are the features that the project provides?
- > 
+ >   * Our game is a turned-based RPG game that starts off with the player character being trapped inside a computer due to a powerful computer virus. The goal of the game is to fight your way to the sources of the virus and take it down to free the computer and the player character. 
+ >   * The user will input to select and control a premade character that is part of one of three selectable classes. Each class will have superior stats in one category, but have lower stats in another to make the choice meaningful. 
+ >   * The user will be able to traverse around a small map that has different areas to visit like towns and dungeons. In towns you can buy items and sell items. In dungeons, the player will be able to fight enemies, gather loot, and progress the story. 
+ >   * The user’s character will have an inventory system that can hold different items like potions, key items, etc. 
+ >   * The main gameplay will take the form of turn-based battles similar to games like Undertale, Final Fantasy, Pokemon, etc. The user will have a menu of options to select during battle like attack, defend, items, and battle skills. 
+ >   * The player character will have stats like health, attack points, defence points, speed points, accuracy points, etc. These stats can be changed through use of weapons, armor, item effects, etc. 
  > This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
  > 
  > You also need to set up an empty project board by choosing the  “Automated kanban with review” option on Github. You should also have a Backlog and In testing columns added.
