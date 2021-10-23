@@ -1,7 +1,7 @@
  > As you complete each section you **must** remove the prompt text. Every *turnin* of this project includes points for formatting of this README so keep it clean and keep it up to date. 
  > Prompt text is any lines beginning with "\>"
  > Replace anything between \<...\> with your project specifics and remove angle brackets. For example, you need to name your project and replace the header right below this line with that title (no angle brackets). 
-# Down With The System
+# RPG Project: Down With The System
  > Your author list below should include links to all members GitHub (remove existing author).
  
  > Authors: [Jeffrey Hata](https://github.com/Jeff591), [Cameron Fong](https://github.com/CameronSF), [Pedro Gonzalez](https://github.com/pgonz028), [Nathan Wong](https://github.com/nathanw1510)  
@@ -35,7 +35,6 @@
  >   * The player character will have stats like health, attack points, defence points, speed points, accuracy points, etc. These stats can be changed through use of weapons, armor, item effects, etc. 
  > This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
  > 
- > You also need to set up an empty project board by choosing the  “Automated kanban with review” option on Github. You should also have a Backlog and In testing columns added.
  > ## Phase II
  > In addition to completing the "Class Diagram" section below, you will need to:
  > * Create an "Epic" (note) for each feature and each design pattern and assign them to the appropriate team member. Place these in the `Backlog` column
