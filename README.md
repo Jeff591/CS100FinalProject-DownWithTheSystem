@@ -33,7 +33,7 @@
  >   * The user’s character will have an inventory system that can hold different items like potions, key items, etc. 
  >   * The main gameplay will take the form of turn-based battles similar to games like Undertale, Final Fantasy, Pokemon, etc. The user will have a menu of options to select during battle like attack, defend, items, and battle skills. 
  >   * The player character will have stats like health, attack points, defence points, speed points, accuracy points, etc. These stats can be changed through use of weapons, armor, item effects, etc. 
- > This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
+ >  
  > 
  > ## Phase II
  > In addition to completing the "Class Diagram" section below, you will need to:
