@@ -40,7 +40,6 @@ Authors: [Jeffrey Hata](https://github.com/Jeff591), [Cameron Fong](https://gith
  >   * Create smaller actionable development tasks as issues and assign them to team members. Place these in the `TODO` column.
  >   * These cards should represent roughly 7 days worth of development time for your team, taking you until your first meeting with the TA
 ## Class Diagram
- > Include a class diagram(s) for your project and a description of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper UML notation (as discussed in the course slides).
  > ![Phase II_ UML Diagram](https://user-images.githubusercontent.com/66803305/140859382-7287ddb1-753d-4317-b917-dfb21aecfc03.png)
  > [UML Diagram](https://lucid.app/publicSegments/view/65744f78-3fde-48ce-ae6d-6c075e1613d7/image.jpeg)
  > * Game client: The game starts with our main or the game client including the player class through a composition between the two to know what type of player (Defender, Cleaner, or firewall) will be used for the player and calls on runGame to start the game.
