@@ -33,12 +33,6 @@ Authors: [Jeffrey Hata](https://github.com/Jeff591), [Cameron Fong](https://gith
  >   * The player character will have stats like health, attack points, defence points, speed points, accuracy points, etc. These stats can be changed through use of weapons, armor, item effects, etc. 
  >  
  > 
- > ## Phase II
- > In addition to completing the "Class Diagram" section below, you will need to:
- > * Create an "Epic" (note) for each feature and each design pattern and assign them to the appropriate team member. Place these in the `Backlog` column
- > * Complete your first *sprint planning* meeting to plan out the next 7 days of work.
- >   * Create smaller actionable development tasks as issues and assign them to team members. Place these in the `TODO` column.
- >   * These cards should represent roughly 7 days worth of development time for your team, taking you until your first meeting with the TA
 ## Class Diagram
  > ![Phase II_ UML Diagram](https://user-images.githubusercontent.com/66803305/140859382-7287ddb1-753d-4317-b917-dfb21aecfc03.png)
  > [UML Diagram](https://lucid.app/publicSegments/view/65744f78-3fde-48ce-ae6d-6c075e1613d7/image.jpeg)
