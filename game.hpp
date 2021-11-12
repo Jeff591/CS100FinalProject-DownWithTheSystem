@@ -5,9 +5,6 @@
 #include <string>
 #include "player.hpp"
 #include "character.hpp"
-#include "defender.hpp"
-#include "cleaner.hpp"
-#include "firewall.hpp"
 //#include "dungeon.hpp"
 
 using namespace std;
