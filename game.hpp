@@ -5,6 +5,9 @@
 #include <string>
 #include "player.hpp"
 #include "character.hpp"
+#include "defender.hpp"
+#include "cleaner.hpp"
+#include "firewall.hpp"
 //#include "dungeon.hpp"
 
 using namespace std;
@@ -63,7 +66,7 @@ class Game
         if (characterInput == "y")
         {
           chosen = true;
-          playerChar = new Player(character);
+          playerChar = set_class(character);
         }
         else
         {
@@ -81,6 +84,22 @@ class Game
     //void battle(Dungeon* level);
 
     void game_over();
+    
+    Player* set_class(string chosen)
+    {
+      if (chosen == "Defender")
+      {
+        return new Defender();
+      }
+      else if (chosen == "Cleaner")
+      {
+        return new Cleaner();
+      }
+      else
+      {
+        return new Firewall();
+      }
+    }
 
 };
 #endif
