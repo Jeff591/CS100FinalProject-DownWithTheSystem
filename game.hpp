@@ -72,7 +72,7 @@ class Game
       }
       cout << "Health: " << playerChar->get_health() <<endl;
       cout << "Power: " << playerChar->get_power() <<endl;
-      cout << "Defence: " << playerChar->get_defence() <<endl;
+      cout << "Defense: " << playerChar->get_defense() <<endl;
       cout << "Speed: " << playerChar->get_speed() <<endl;
       cout << "Test Worked" << endl;
      
