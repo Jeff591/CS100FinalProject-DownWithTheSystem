@@ -6,7 +6,7 @@ class Character
   protected:
     int health;
     int power;
-    int defence;
+    int defense;
     int speed;
   public:
     
@@ -19,9 +19,9 @@ class Character
     {
       return power;
     }
-    int get_defence()
+    int get_defense()
     {
-      return defence;
+      return defense;
     }
     int get_speed()
     {
