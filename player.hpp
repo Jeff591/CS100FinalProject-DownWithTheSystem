@@ -17,7 +17,7 @@ class Player : public Character
 
     void attack(Character* opponent)
     {
-      int damageDealt = this->get_power() - opponent->get_defence();
+      int damageDealt = this->get_power() - opponent->get_defense();
       if (damageDealt < 0)
       {
         damageDealt = 0;
@@ -33,7 +33,7 @@ class Defender : public Player
     {
       health = 25;
       power = 5;
-      defence = 7;
+      defense = 7;
       speed = 3;
     }
 
@@ -47,7 +47,7 @@ class Cleaner : public Player
     {
       health = 25;
       power = 8;
-      defence = 3;
+      defense = 3;
       speed = 7;
     }
 
@@ -61,7 +61,7 @@ class Firewall : public Player
     {
       health = 35;
       power = 5;
-      defence = 5;
+      defense = 5;
       speed = 5;
     }
 
