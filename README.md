@@ -52,7 +52,9 @@ Authors: [Jeffrey Hata](https://github.com/Jeff591), [Cameron Fong](https://gith
 > 
  
  > ## Phase III
- > You will need to schedule a check-in with the TA (during lab hours or office hours). Your entire team must be present. 
+ > ![Phase II_ UML Diagram (1)](https://user-images.githubusercontent.com/66803305/141862215-4b856fdf-4f08-4c08-9d1c-7855114e49d4.png)
+ > [UML Diagram](https://lucid.app/publicSegments/view/65744f78-3fde-48ce-ae6d-6c075e1613d7/image.jpeg)
+ > * You will need to schedule a check-in with the TA (during lab hours or office hours). Your entire team must be present. 
  > * Before the meeting you should perform a sprint plan like you did in Phase II.
  > * You should also update this README file by adding the following:
  >   * What design patterns did you use? For each design pattern you must explain in 4-5 sentences:
