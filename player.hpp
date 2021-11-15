@@ -7,7 +7,7 @@
 #include "Item.hpp"
 #include "Weapon.hpp"
 #include "Armor.hpp"
-#include "HealthPotion.hpp"
+#include "Potion.hpp"
 #include <vector>
 
 using namespace std;
