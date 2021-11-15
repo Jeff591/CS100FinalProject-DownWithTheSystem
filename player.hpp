@@ -16,8 +16,8 @@ class Player : public Character
 {
   protected:
     vector<vector<Item*>> inventory;
-    Weapon* currentWeapon;
-    Armor* currentArmor;
+    Weapon* currentWeapon = nullptr;
+    Armor* currentArmor = nullptr;
 
   public:
 
@@ -42,8 +42,8 @@ class Player : public Character
       cout << "Speed: " << this->get_defense() << endl;
       cout << "-------------------------------------------------------" << endl;
       cout << "Item stats: " << endl;
-      this->currentWeapon->check_stats();
-      this->currentArmor->check_stats();
+      if(this->currentWeapon != nullptr) this->currentWeapon->check_stats();
+      if(this->currentArmor != nullptr) this->currentArmor->check_stats();
       for(unsigned i = 0; i < this->inventory.at(2).size(); i++) {
         this->inventory.at(2).at(i)->check_stats();
       }
