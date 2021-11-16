@@ -17,7 +17,7 @@ using namespace std;
  * through increasing money if selling an item or subtracting money if 
  * buying an item.
  * */
-class town
+class Town
 {
     private:
 
@@ -26,7 +26,8 @@ class town
     void buy();
     void sell();
 
-    town()
-   virtual  ~town()
+    Town();
+   virtual  ~Town();
 
-}
+};
+#endif

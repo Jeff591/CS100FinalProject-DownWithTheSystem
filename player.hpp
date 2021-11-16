@@ -8,6 +8,7 @@
 #include "Weapon.hpp"
 #include "Armor.hpp"
 #include "Potion.hpp"
+#include "skillset.hpp"
 #include <vector>
 
 using namespace std;
@@ -18,10 +19,13 @@ class Player : public Character
     vector<vector<Item*>> inventory;
     Weapon* currentWeapon = nullptr;
     Armor* currentArmor = nullptr;
+    SkillSet* mainSkill = nullptr;
+    SkillSet* comboSkill = nullptr;
 
   public:
 
-    ~Player();
+     Player(){};
+    ~Player(){};
 
     void attack(Character* opponent)
     {
@@ -60,6 +64,8 @@ class Defender : public Player
       power = 5;
       defense = 7;
       speed = 3;
+      mainSkill = new ShieldBash();
+      comboSkill = new ComboSkill(new ShieldBash(), new Rebuild());
     }
 
     ~Defender();
@@ -74,6 +80,8 @@ class Cleaner : public Player
       power = 8;
       defense = 3;
       speed = 7;
+      mainSkill = new CleanSweep();
+      comboSkill = new ComboSkill(new CleanSweep(), new ShieldBash());
     }
 
     ~Cleaner();
@@ -88,6 +96,8 @@ class Firewall : public Player
       power = 5;
       defense = 5;
       speed = 5;
+      mainSkill = new Rebuild();
+      comboSkill = new ComboSkill(new Rebuild(), new CleanSweep());
     }
 
     ~Firewall();

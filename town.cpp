@@ -1,8 +1,9 @@
+/*
 #include "town.hpp"
 #include "player.hpp"
 
 #include <iostream>
-void buy(){
+void Town::buy(){
     int response = 0;
     std::cout << "1: Armor 2:Weapon 3:Potion" << endl;
     do
@@ -87,7 +88,7 @@ void buy(){
     std::cout << "1: Armor 2:Weapon 3:Potion" << endl; 
     } while (response >5 || response < 1);
  }
-  void sell()
+  void  Town::sell()
     { //still need to implement this, not sure what to do for that excactly
         int response = 0;
         Player.showinventory();//or .inventory im not sure what the variable be called to display inventory
@@ -132,3 +133,4 @@ int main()
     return
 
 }
+*/
