@@ -29,6 +29,10 @@ class ShieldBash : public SkillSet
       battle_hp-=3;
       return 0;
     }
+    ~ShieldBash()
+    {
+      delete this;
+    }
 };
 
 class CleanSweep : public SkillSet
@@ -40,6 +44,11 @@ class CleanSweep : public SkillSet
       battle_hp-=4;
       return 3;
     }
+    ~CleanSweep()
+    {
+      delete this;
+    }
+
 };
 
 class Rebuild : public SkillSet
@@ -51,6 +60,11 @@ class Rebuild : public SkillSet
       battle_hp+=8;
       return 0;
     }
+    ~Rebuild()
+    {
+      delete this;
+    }
+
 };
 
 class ComboSkill : public SkillSet
@@ -72,5 +86,12 @@ class ComboSkill : public SkillSet
       int damage_dealt = Skill1->unique_skill(battle_hp) + Skill2->unique_skill(battle_hp);
       return damage_dealt;
     }
+    ~ComboSkill()
+    {
+      delete Skill1;
+      delete Skill2;
+      delete this;
+    }
+
 };
 #endif
