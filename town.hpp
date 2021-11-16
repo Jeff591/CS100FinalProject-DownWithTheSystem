@@ -24,7 +24,7 @@ class town
     public:
 
     void buy();
-    void sell()
+    void sell();
 
     town()
    virtual  ~town()
