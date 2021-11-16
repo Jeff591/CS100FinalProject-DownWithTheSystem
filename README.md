@@ -52,7 +52,7 @@ Authors: [Jeffrey Hata](https://github.com/Jeff591), [Cameron Fong](https://gith
 > 
  
  > ## Phase III
- > ![Phase II_ UML Diagram (1)](https://user-images.githubusercontent.com/66803305/141862215-4b856fdf-4f08-4c08-9d1c-7855114e49d4.png)
+ > ![Phase II_ UML Diagram (2)](https://user-images.githubusercontent.com/66803305/142055730-6c4156ee-15ce-4aff-b667-97da7e300d3d.png)
  > [UML Diagram](https://lucid.app/publicSegments/view/65744f78-3fde-48ce-ae6d-6c075e1613d7/image.jpeg)
  > * Strategy Pattern for the SkillSet Classes
  >   * We chose to use the strategy pattern to help implement the SkillSet classes because we wanted the player to be able to select their battle skills depending on the character they chose. The SkillSet class acts as the abstract strategy and gives the interface to its derived classes which each act as concrete strategies. This design pattern helped us write better code by allowing us to better organize the skills we want to implement and expand the number of skills if we want to in the future. It also made it easier for certain character classes to have their own unique battle options.
