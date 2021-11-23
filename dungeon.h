@@ -2,7 +2,7 @@
 #define __DUNGEON_H__
 
 #include <vector>
-#include "enemy.hpp"
+#include "enemy.h"
 
 class Dungeon : public Enemy {
     private:
