@@ -10,13 +10,17 @@
 #include "Potion.hpp"
 #include "skillset.hpp"
 #include <vector>
+#include <typeinfo>
 
 using namespace std;
 
 class Player : public Character
 {
   protected:
-    vector<vector<Item*>> inventory;
+    //0: Weapon, 1: Armor, 2: Potion
+    //Equipped item will be in index 0 for each vector
+    vector<vector<Item*>> inventory = vector<vector<Item*>>(3, vector<Item*>()); 
+    int money = 1000;
     Weapon* currentWeapon = nullptr;
     Armor* currentArmor = nullptr;
     SkillSet* mainSkill = nullptr;
@@ -24,7 +28,7 @@ class Player : public Character
 
   public:
 
-     Player(){};
+    Player(){};
     ~Player(){};
 
     void attack(Character* opponent)
@@ -52,6 +56,33 @@ class Player : public Character
         this->inventory.at(2).at(i)->check_stats();
       }
       cout << "-------------------------------------------------------" << endl;
+    }
+
+    void add_item(Item* item, int price) {
+        if(this->money < price) {
+            cout << "You don't have enough money to purchase this item." << endl << endl;
+            return;
+        }
+
+        this->money -= price;
+
+        string itemType = typeid(item).name();
+
+        if(itemType == "Weapon") {
+            this->inventory.at(0).push_back(item);
+        }else if(itemType == "Armor") {
+            this->inventory.at(1).push_back(item);
+        }else{
+            this->inventory.at(2).push_back(item);
+        }
+
+        cout << item->get_name() << " purchased successfully" << endl;
+        cout << "Your new balance is " << this->money << endl << endl;
+
+    }
+
+    int get_money() {
+        return this->money;
     }
 };
 
