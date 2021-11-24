@@ -28,7 +28,7 @@ void Town::buy(){
                     << "1. ByteArmor [15 credits] | +5 defense" << endl
                     << "2. KiloArmor [30 credits] | +10 defense" << endl
                     << "3. MegaArmor [60 credits] | +15 defense" << endl
-                    << "4. GigaArmor [120 credits] +20 defense" << endl
+                    << "4. GigaArmor [120 credits] | +20 defense" << endl
                     << "5. TeraArmor {240 credits] | +25 defense" << endl
                     << "6. Back" << endl;
 
