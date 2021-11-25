@@ -20,6 +20,7 @@ class Town
 {
     private:
         void buyConfirmation(Item* item, int price);
+        void sellConfirmation(Item *item, int price);
         Player* player;
     public:
 

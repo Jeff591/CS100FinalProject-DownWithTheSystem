@@ -5,7 +5,6 @@ Town::Town(Player* player) {
 }
 
 void Town::buy(){
-    cout << "Welcome to the town" << endl;
     cout << "What would you like to purchase?" << endl << endl;
     int response = 0;
     while(response != 4) {
@@ -135,9 +134,37 @@ void Town::buy(){
     }
  }
 
-void Town::sell() //TODO
+void Town::sell()
 { 
-    int response = 0;
+    vector<Item*> itemList = player->get_inventory();
+
+    if(itemList.size() == 0) {
+        cout << "You have no items to sell." << endl;
+        return; 
+    }
+
+    cout << "What would you like to sell?" << endl << endl;
+
+    int response = -1;
+    cout << "item size " << itemList.size() << endl;
+    while(response < 1 || response > itemList.size()) {
+        for(unsigned i = 0; i < itemList.size(); i++) {
+            cout << i + 1 << ". " << itemList.at(i)->get_name() << " [" << itemList.at(i)->get_sell_price() << " credits]" << endl;
+        }
+        cout << endl;
+
+        cin >> response;
+
+        if(response < 1 || response > itemList.size()) {
+            cout << "Invalid option." << endl;
+        }else{
+            Item* itemToSell = itemList.at(response - 1);
+
+            this->sellConfirmation(itemToSell, itemToSell->get_sell_price());
+        }
+
+    }
+
 }
 
 void Town::buyConfirmation(Item *item, int price) {
@@ -155,6 +182,28 @@ void Town::buyConfirmation(Item *item, int price) {
                 break;
             case 2:
                 cout << "Item purchase cancelled." << endl;
+                break;
+            default:
+                cout << "Invalid option." << endl << endl;
+                break;
+        }
+    }
+}
+
+void Town::sellConfirmation(Item *item, int price) {
+     int response = 0;
+
+    while(response != 1 && response != 2) {
+        cout << "Are you sure you want to sell " << item->get_name() << " for " << price << " credits?" << endl;
+        cout << "1: Yes" << endl;
+        cout << "2: No" << endl;
+        cin >> response;
+        switch(response) {
+            case 1:
+                this->player->remove_item(item, price);
+                break;
+            case 2:
+                cout << "Item sell cancelled." << endl;
                 break;
             default:
                 cout << "Invalid option." << endl << endl;
