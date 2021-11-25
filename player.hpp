@@ -20,7 +20,7 @@ class Player : public Character
     //0: Weapon, 1: Armor, 2: Potion
     //Equipped item will be in index 0 for each vector
     vector<vector<Item*>> inventory = vector<vector<Item*>>(3, vector<Item*>()); 
-    int money = 1000;
+    int money = 0;
     Weapon* currentWeapon = nullptr;
     Armor* currentArmor = nullptr;
     SkillSet* mainSkill = nullptr;
