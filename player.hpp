@@ -4,16 +4,28 @@
 #include <iostream>
 #include <string>
 #include "character.hpp"
+#include "Item.hpp"
+#include "Weapon.hpp"
+#include "Armor.hpp"
+#include "Potion.hpp"
+#include "skillset.hpp"
+#include <vector>
 
 using namespace std;
 
 class Player : public Character
 {
   protected:
+    vector<vector<Item*>> inventory;
+    Weapon* currentWeapon = nullptr;
+    Armor* currentArmor = nullptr;
+    SkillSet* mainSkill = nullptr;
+    SkillSet* comboSkill = nullptr;
 
   public:
 
-    ~Player();
+     Player(){};
+    ~Player(){};
 
     void attack(Character* opponent)
     {
@@ -23,6 +35,23 @@ class Player : public Character
         damageDealt = 0;
       }
       //opponent->set_health(damageDealt);
+    }
+
+    void check_stats() {
+      cout << "-------------------------------------------------------" << endl;
+      cout << "Player stats: " << endl;
+      cout << "Health: " << this->get_health() << endl;
+      cout << "Power: " << this->get_power() << endl;
+      cout << "Defense: " << this->get_defense() << endl;
+      cout << "Speed: " << this->get_defense() << endl;
+      cout << "-------------------------------------------------------" << endl;
+      cout << "Item stats: " << endl;
+      if(this->currentWeapon != nullptr) this->currentWeapon->check_stats();
+      if(this->currentArmor != nullptr) this->currentArmor->check_stats();
+      for(unsigned i = 0; i < this->inventory.at(2).size(); i++) {
+        this->inventory.at(2).at(i)->check_stats();
+      }
+      cout << "-------------------------------------------------------" << endl;
     }
 };
 
@@ -35,6 +64,8 @@ class Defender : public Player
       power = 5;
       defense = 7;
       speed = 3;
+      mainSkill = new ShieldBash();
+      comboSkill = new ComboSkill(new ShieldBash(), new Rebuild());
     }
 
     ~Defender();
@@ -49,6 +80,8 @@ class Cleaner : public Player
       power = 8;
       defense = 3;
       speed = 7;
+      mainSkill = new CleanSweep();
+      comboSkill = new ComboSkill(new CleanSweep(), new ShieldBash());
     }
 
     ~Cleaner();
@@ -63,6 +96,8 @@ class Firewall : public Player
       power = 5;
       defense = 5;
       speed = 5;
+      mainSkill = new Rebuild();
+      comboSkill = new ComboSkill(new Rebuild(), new CleanSweep());
     }
 
     ~Firewall();

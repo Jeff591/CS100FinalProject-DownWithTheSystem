@@ -10,7 +10,7 @@ class Item
     int sell_price;
     string name;
     string description;
-  private:
+  public:
     
     virtual void check_stats() = 0;
 };

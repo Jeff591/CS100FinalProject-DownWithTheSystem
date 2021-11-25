@@ -52,20 +52,12 @@ Authors: [Jeffrey Hata](https://github.com/Jeff591), [Cameron Fong](https://gith
 > 
  
  > ## Phase III
- > You will need to schedule a check-in with the TA (during lab hours or office hours). Your entire team must be present. 
- > * Before the meeting you should perform a sprint plan like you did in Phase II.
- > * You should also update this README file by adding the following:
- >   * What design patterns did you use? For each design pattern you must explain in 4-5 sentences:
- >     * Why did you pick this pattern? And what feature did you implement with it?
- >     * How did the design pattern help you write better code?
- >   * An updated class diagram that reflects the design patterns you used. You may combine multiple design patterns into one diagram if you'd like, but it needs to be clear which portion of the diagram represents which design pattern (either in the diagram or in the description).
- >   * Make sure your README file (and Project board) are up-to-date reflecting the current status of your project. Previous versions of the README file should still be visible through your commit history.
-> 
-> During the meeting with your TA you will discuss: 
- > * How effective your last sprint was (each member should talk about what they did)
- > * Any tasks that did not get completed last sprint, and how you took them into consideration for this sprint
- > * Any bugs you've identified and created issues for during the sprint. Do you plan on fixing them in the next sprint or are they lower priority?
- > * What tasks you are planning for this next sprint.
+ > ![Phase II_ UML Diagram (2)](https://user-images.githubusercontent.com/66803305/142055730-6c4156ee-15ce-4aff-b667-97da7e300d3d.png)
+ > [UML Diagram](https://lucid.app/publicSegments/view/65744f78-3fde-48ce-ae6d-6c075e1613d7/image.jpeg)
+ > * Strategy Pattern for the SkillSet Classes
+ >   * We chose to use the strategy pattern to help implement the SkillSet classes because we wanted the player to be able to select their battle skills depending on the character they chose. The SkillSet class acts as the abstract strategy and gives the interface to its derived classes which each act as concrete strategies. This design pattern helped us write better code by allowing us to better organize the skills we want to implement and expand the number of skills if we want to in the future. It also made it easier for certain character classes to have their own unique battle options.
+ > * Composite Pattern for the ComboSkill Class
+ >   * We chose to use the composite pattern along with the strategy pattern to implement the ComboSkill Class so that the player has the ability to use an alternative battle option than just the one skill associated with their character. The ComboSkill class acts as the composite as it is a composition of the SkillSet Class. This allows the ComboSkill class to hold two different SkillSet objects within itself so that the ComboSkill object can have the effect of two different skills at once. The use of the composite pattern made it much easier to implement this mechanic into our game by allowing us to treat the ComboSkill class the same as the other SkillSet classes in other functions like battle(), while also cutting down on repetitive code when trying to put two skills together. 
 
  
  > ## Final deliverable
