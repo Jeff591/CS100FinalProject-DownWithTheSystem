@@ -21,22 +21,54 @@ class Player : public Character
     Armor* currentArmor = nullptr;
     SkillSet* mainSkill = nullptr;
     SkillSet* comboSkill = nullptr;
+    int money = 0;
 
   public:
 
-     Player(){};
-    ~Player(){};
-
-    void attack(Character* opponent)
+    Player(){};
+    ~Player()
     {
-      int damageDealt = this->get_power() - opponent->get_defense();
+      delete mainSkill;
+      delete comboSkill;
+      delete currentArmor;
+      delete currentWeapon;
+      for (unsigned int i = 0; i < inventory.size(); i++)
+      {
+        for(unsigned int j = 0; j < inventory.at(i).size(); j++)
+        {
+          delete inventory.at(i).at(j);
+        }
+      }
+    }
+
+    int attack(Character* opponent)
+    {
+      int damageDealt;
+      if(currentWeapon != nullptr)
+      {
+        damageDealt = this->get_power() + this->currentWeapon->get_attack() - opponent->get_defense();
+      }
+      else
+      {
+        damageDealt = this->get_power() - opponent->get_defense();
+      }
       if (damageDealt < 0)
       {
         damageDealt = 0;
       }
-      //opponent->set_health(damageDealt);
+      return damageDealt;
     }
+    
+    SkillSet* get_skill1()
+    {
+      return mainSkill;
+    }    
 
+    SkillSet* get_skill2()
+    {
+      return comboSkill;
+    } 
+    
     void check_stats() {
       cout << "-------------------------------------------------------" << endl;
       cout << "Player stats: " << endl;
@@ -53,6 +85,33 @@ class Player : public Character
       }
       cout << "-------------------------------------------------------" << endl;
     }
+    
+    int set_money(int amount)
+    {
+      money += amount;
+    }
+
+    int get_money()
+    {
+      return money;
+    }
+
+    vector<vector<Item*>> get_inventory() 
+    {
+      return inventory;
+    }
+
+    Armor* get_current_armor()
+    {
+      return currentArmor;
+    }
+
+    Weapon* get_current_weapon()
+    {
+      return currentWeapon;
+    }
+    
+ 
 };
 
 class Defender : public Player
@@ -64,11 +123,10 @@ class Defender : public Player
       power = 5;
       defense = 7;
       speed = 3;
+      name = "Defender";
       mainSkill = new ShieldBash();
       comboSkill = new ComboSkill(new ShieldBash(), new Rebuild());
     }
-
-    ~Defender();
 };
 
 class Cleaner : public Player
@@ -80,11 +138,11 @@ class Cleaner : public Player
       power = 8;
       defense = 3;
       speed = 7;
+      name = "Cleaner";
       mainSkill = new CleanSweep();
       comboSkill = new ComboSkill(new CleanSweep(), new ShieldBash());
     }
 
-    ~Cleaner();
 };
 
 class Firewall : public Player
@@ -96,10 +154,10 @@ class Firewall : public Player
       power = 5;
       defense = 5;
       speed = 5;
+      name = "Firewall";
       mainSkill = new Rebuild();
       comboSkill = new ComboSkill(new Rebuild(), new CleanSweep());
     }
 
-    ~Firewall();
 };
 #endif
