@@ -5,9 +5,9 @@
 #include <string>
 #include "player.hpp"
 #include "character.hpp"
-#include "dungeon.hpp"
+#include "dungeon.h"
 #include <stdlib.h>
-#include "enemy.hpp"
+#include "enemy.h"
 #include "skillset.hpp"
 
 using namespace std;
