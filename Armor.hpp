@@ -11,6 +11,10 @@ class Armor : public Item
     int defense;
   public:
     Armor(){}
+    ~Armor()
+    {
+      delete this;
+    }
     int get_sell_price(){return sell_price;} 
     string get_armor_name(){return name;} 
     string get_armor_description(){return description;} 
@@ -29,6 +33,7 @@ class ByteArmor : public Armor
       name = "ByteArmor";
       description = "Armor made of a byte of code. Probably too thin to be proper armor but its better than nothing!";
       defense = 5;
+      itemType = "Armor";
     }
     
 };
@@ -42,8 +47,9 @@ class KiloArmor : public Armor
       name = "KiloArmor";
       description = "Armor made of a kilobyte of code. This weighs a kilo! You'll definitely gain strength carrying this!";
       defense = 10;
+      itemType = "Armor";
     }
-    
+
 };
 
 class MegaArmor : public Armor
@@ -55,8 +61,9 @@ class MegaArmor : public Armor
       name = "MegaArmor";
       description = "Armor made of a megabyte of code. Being able to shoot and change weapons like MegaMan not included";
       defense = 15;
+      itemType = "Armor";
     }
-    
+
 };
 
 class GigaArmor : public Armor
@@ -68,8 +75,9 @@ class GigaArmor : public Armor
       name = "GigaArmor";
       description = "Armor made of a gigabyte of code. Might give giga defense physically, but it'll be a giga dent on your money";
       defense = 20;
+      itemType = "Armor";
     }
-    
+      
 };
 
 class TeraArmor : public Armor
@@ -81,8 +89,9 @@ class TeraArmor : public Armor
       name = "TeraArmor";
       description = "Legendary armor made of a terabyte of code. The best of the best armor around the interface, but as it is the best, only a few exist due to the immense work for its creation.";
       defense = 25;
+      itemType = "Armor";
     }
-    
+   
 };
 
 #endif

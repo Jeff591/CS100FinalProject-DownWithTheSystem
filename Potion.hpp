@@ -12,6 +12,10 @@ class Potion : public Item
     string type;
   public:
     Potion(){}
+    ~Potion()
+    {
+      delete this;
+    }
     int get_sell_price(){return sell_price;} 
     string get_potion_name(){return name;} 
     string get_potion_description(){return description;} 
@@ -31,6 +35,7 @@ class HealthPotion : public Potion
       description = "A nice drink filled to the brim with dihydrogen monoxide or as you people call it, water. It'll replenish you well.";
       type = "Health";
       alter = 15;
+      itemType = "Potion";
     }
     
 };

@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include "Armor.hpp"
-#include "HealthPotion.hpp"
 #include "Potion.hpp"
 #include "Weapon.hpp"
 #include "player.hpp"
@@ -20,14 +19,16 @@ using namespace std;
 class Town
 {
     private:
-
+        void buyConfirmation(Item* item, int price);
+        void sellConfirmation(Item *item, int price);
+        Player* player;
     public:
 
-    void buy();
-    void sell();
+        void buy();
+        void sell();
 
-    Town();
-   virtual  ~Town();
+        Town(Player *player);
+        virtual ~Town();
 
 };
 #endif
