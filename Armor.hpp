@@ -11,6 +11,10 @@ class Armor : public Item
     int defense;
   public:
     Armor(){}
+    ~Armor()
+    {
+      delete this;
+    }
     int get_sell_price(){return sell_price;} 
     string get_armor_name(){return name;} 
     string get_armor_description(){return description;} 
@@ -45,7 +49,7 @@ class KiloArmor : public Armor
       defense = 10;
       itemType = "Armor";
     }
-    
+
 };
 
 class MegaArmor : public Armor
@@ -59,7 +63,7 @@ class MegaArmor : public Armor
       defense = 15;
       itemType = "Armor";
     }
-    
+
 };
 
 class GigaArmor : public Armor
@@ -73,7 +77,7 @@ class GigaArmor : public Armor
       defense = 20;
       itemType = "Armor";
     }
-    
+      
 };
 
 class TeraArmor : public Armor
@@ -87,7 +91,7 @@ class TeraArmor : public Armor
       defense = 25;
       itemType = "Armor";
     }
-    
+   
 };
 
 #endif

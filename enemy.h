@@ -2,102 +2,129 @@
 #define __ENEMY_H__
 
 #include "character.hpp"
+#include "player.hpp"
+#include <iostream>
+
+using namespace std;
 
 class Enemy : public Character {
-    protected:
-        std::string name;
     public:
         Enemy() {};
-        ~Enemy() {};
-        Enemy(int h, int p, int s);
+        virtual ~Enemy() {};
 
         int attack(Character* opponent);
-
-        std::string get_name();
 
         void set_health(int damage);
 };
 
 class Bug : public Enemy {
     public:
-        Bug(int h, int p, int s) : Enemy(h, p, s) {
+        Bug(){
             this->name = "Bug";
+            this->power = 8;
+            this->defense = 2;
+            this->health = 15;
+            this->speed = 2;
         };
 
         int attack(Character* opponent) {
-            std::cout << "Bug attacks you" << std::endl;
+            std::cout << "Bug attacks you and deals " << Enemy::attack(opponent) << std::endl;
             return Enemy::attack(opponent);
         }
 };
 
 class Worm : public Enemy {
     public:
-        Worm(int h, int p, int s) : Enemy(h, p, s) {
+        Worm()  {
             this->name = "Worm";
+            this->power = 8;
+            this->defense = 3;
+            this->health = 15;
+            this->speed = 4;
         };
 
         int attack(Character* opponent) {
-            std::cout << "Worm attacks you" << std::endl;
+            std::cout << "Worm attacks you and deals " << Enemy::attack(opponent) << std::endl;
             return Enemy::attack(opponent);
         }
 };
 
 class PopUpAd : public Enemy {
     public:
-        PopUpAd(int h, int p, int s) : Enemy(h, p, s) {
+        PopUpAd()  {
             this->name = "Pop-up Ad";
+            this->power = 9;
+            this->defense = 4;
+            this->health = 20;
+            this->speed = 3;
         };
 
         int attack(Character* opponent) {
-            std::cout << "Pop-up Ad attacks you" << std::endl;
+            std::cout << "Pop-up Ad attacks you and deals " << Enemy::attack(opponent) << std::endl;
             return Enemy::attack(opponent);
         }
 };
 
 class Spyware : public Enemy {
     public:
-        Spyware(int h, int p, int s) : Enemy(h, p, s) {
+        Spyware()  {
             this->name = "Spyware";
+            this->power = 9;
+            this->defense = 4;
+            this->health = 15;
+            this->speed = 6;
         };
 
         int attack(Character* opponent) {
-            std::cout << "Spyware attacks you" << std::endl;
+            std::cout << "Spyware attacks you and deals " << Enemy::attack(opponent) << std::endl;
             return Enemy::attack(opponent);
         }
 };
 
 class Virus : public Enemy {
     public:
-        Virus(int h, int p, int s) : Enemy(h, p, s) {
+        Virus()  {
             this->name = "Virus";
+            this->power = 9;
+            this->defense = 6;
+            this->health = 15;
+            this->speed = 4;
         };
 
         int attack(Character* opponent) {
-            std::cout << "Virus attacks you" << std::endl;
+            std::cout << "Virus attacks you and deals " << Enemy::attack(opponent) << std::endl;
             return Enemy::attack(opponent);
         }
 };
 
 class TrojanHorse : public Enemy {
     public:
-        TrojanHorse(int h, int p, int s) : Enemy(h, p, s) {
+        TrojanHorse()  {
             this->name = "Trojan Horse";
+            this->power = 10;
+            this->defense = 6;
+            this->health = 20;
+            this->speed = 6;
         };
 
         int attack(Character* opponent) {
-            std::cout << "Trojan Horse attacks you" << std::endl;
+            std::cout << "Trojan Horse attacks you and deals " << Enemy::attack(opponent) << std::endl;
             return Enemy::attack(opponent);
         }
 };
 
 class CorruptedMotherboard : public Enemy {
     public:
-        CorruptedMotherboard(int h, int p, int s) : Enemy(h, p, s) {
+        CorruptedMotherboard()  {
             this->name = "Corrupted Motherboard";
+            this->power = 14;
+            this->defense = 9;
+            this->health = 30;
+            this->speed = 6;
         };
         
         int attack(Character* opponent) {
-            std::cout << "Corrupted Motherboard attacks you" << std::endl;
+            std::cout << "Corrupted Motherboard attacks you and deals " << Enemy::attack(opponent) << std::endl;
             return Enemy::attack(opponent);
         }
 };

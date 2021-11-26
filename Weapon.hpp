@@ -11,6 +11,10 @@ class Weapon : public Item
     int attack;
   public:
     Weapon(){}
+    ~Weapon()
+    {
+      delete this;
+    }
     int get_sell_price(){return sell_price;} 
     string get_weapon_name(){return name;} 
     string get_weapon_description(){return description;} 
@@ -59,7 +63,6 @@ class MegaWeapon : public Weapon
       attack = 15;
       itemType = "Weapon";
     }
-    
 };
 
 class GigaWeapon : public Weapon
@@ -73,7 +76,6 @@ class GigaWeapon : public Weapon
       attack = 20;
       itemType = "Weapon";
     }
-    
 };
 
 class TeraWeapon : public Weapon
@@ -87,7 +89,6 @@ class TeraWeapon : public Weapon
       attack = 25;
       itemType = "Weapon";
     }
-    
 };
 
 #endif

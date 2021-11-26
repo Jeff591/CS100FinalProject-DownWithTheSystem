@@ -5,6 +5,7 @@
 using namespace std;
 
 int main() {
-  Game DownSystem;
-  DownSystem.runGame();
+  Game* DownSystem = new Game();
+  DownSystem->runGame();
+  delete DownSystem;
 } 

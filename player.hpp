@@ -20,7 +20,7 @@ protected:
     // 0: Weapon, 1: Armor, 2: Potion
     // Equipped item will be in index 0 for each vector
     vector<vector<Item *>> inventory = vector<vector<Item *>>(3, vector<Item *>());
-    int money = 100000;
+    int money = 0;
     Weapon *currentWeapon = nullptr;
     Armor *currentArmor = nullptr;
     SkillSet *mainSkill = nullptr;
@@ -28,18 +28,49 @@ protected:
 
 public:
     Player(){};
-    ~Player(){};
-
-    void attack(Character *opponent)
+    ~Player()
     {
-        int damageDealt = this->get_power() - opponent->get_defense();
-        if (damageDealt < 0)
+      delete mainSkill;
+      delete comboSkill;
+      delete currentArmor;
+      delete currentWeapon;
+      for (unsigned int i = 0; i < inventory.size(); i++)
+      {
+        for(unsigned int j = 0; j < inventory.at(i).size(); j++)
         {
-            damageDealt = 0;
+          delete inventory.at(i).at(j);
         }
-        // opponent->set_health(damageDealt);
+      }
     }
 
+    int attack(Character* opponent)
+    {
+      int damageDealt;
+      if(currentWeapon != nullptr)
+      {
+        damageDealt = this->get_power() + this->currentWeapon->get_attack() - opponent->get_defense();
+      }
+      else
+      {
+        damageDealt = this->get_power() - opponent->get_defense();
+      }
+      if (damageDealt < 0)
+      {
+        damageDealt = 0;
+      }
+      return damageDealt;
+    }
+    
+    SkillSet* get_skill1()
+    {
+      return mainSkill;
+    }
+    
+    SkillSet* get_skill2()
+    {
+      return comboSkill;
+    } 
+    
     void check_stats()
     {
         cout << "-------------------------------------------------------" << endl;
@@ -51,11 +82,15 @@ public:
         cout << "-------------------------------------------------------" << endl;
         cout << "Item stats: " << endl;
         if (this->currentWeapon != nullptr)
+        {
             this->currentWeapon->check_stats();
             cout << endl;
+        }
         if (this->currentArmor != nullptr)
+        {
             this->currentArmor->check_stats();
             cout << endl;
+        }
         for (unsigned i = 0; i < this->inventory.at(2).size(); i++)
         {
             this->inventory.at(2).at(i)->check_stats();
@@ -92,7 +127,7 @@ public:
 
         cout << item->get_name() << " purchased successfully" << endl;
     }
-
+    
     void remove_item(Item *item, int price)
     {
         string itemType = item->get_item_type();
@@ -144,10 +179,28 @@ public:
         return &this->inventory;
     }
 
+    
+    int set_money(int amount)
+    {
+      money += amount;
+    }
+
     int get_money()
     {
-        return this->money;
+      return money;
     }
+
+    Armor* get_current_armor()
+    {
+      return currentArmor;
+    }
+
+    Weapon* get_current_weapon()
+    {
+      return currentWeapon;
+    }
+    
+ 
 };
 
 class Defender : public Player
@@ -155,15 +208,14 @@ class Defender : public Player
 public:
     Defender()
     {
-        health = 25;
-        power = 5;
-        defense = 7;
-        speed = 3;
-        mainSkill = new ShieldBash();
-        comboSkill = new ComboSkill(new ShieldBash(), new Rebuild());
+      health = 25;
+      power = 5;
+      defense = 7;
+      speed = 3;
+      name = "Defender";
+      mainSkill = new ShieldBash();
+      comboSkill = new ComboSkill(new ShieldBash(), new Rebuild());
     }
-
-    ~Defender();
 };
 
 class Cleaner : public Player
@@ -171,15 +223,15 @@ class Cleaner : public Player
 public:
     Cleaner()
     {
-        health = 25;
-        power = 8;
-        defense = 3;
-        speed = 7;
-        mainSkill = new CleanSweep();
-        comboSkill = new ComboSkill(new CleanSweep(), new ShieldBash());
+      health = 25;
+      power = 8;
+      defense = 3;
+      speed = 7;
+      name = "Cleaner";
+      mainSkill = new CleanSweep();
+      comboSkill = new ComboSkill(new CleanSweep(), new ShieldBash());
     }
 
-    ~Cleaner();
 };
 
 class Firewall : public Player
@@ -187,14 +239,14 @@ class Firewall : public Player
 public:
     Firewall()
     {
-        health = 35;
-        power = 5;
-        defense = 5;
-        speed = 5;
-        mainSkill = new Rebuild();
-        comboSkill = new ComboSkill(new Rebuild(), new CleanSweep());
+      health = 35;
+      power = 5;
+      defense = 5;
+      speed = 5;
+      name = "Firewall";
+      mainSkill = new Rebuild();
+      comboSkill = new ComboSkill(new Rebuild(), new CleanSweep());
     }
 
-    ~Firewall();
 };
 #endif
