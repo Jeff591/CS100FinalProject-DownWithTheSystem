@@ -9,7 +9,6 @@ class Armor : public Item
 {
   protected:
     int defense;
-    string itemType;
   public:
     Armor(){}
     int get_sell_price(){return sell_price;} 

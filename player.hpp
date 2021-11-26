@@ -20,7 +20,7 @@ protected:
     // 0: Weapon, 1: Armor, 2: Potion
     // Equipped item will be in index 0 for each vector
     vector<vector<Item *>> inventory = vector<vector<Item *>>(3, vector<Item *>());
-    int money = 0;
+    int money = 100000;
     Weapon *currentWeapon = nullptr;
     Armor *currentArmor = nullptr;
     SkillSet *mainSkill = nullptr;
@@ -91,8 +91,6 @@ public:
         }
 
         cout << item->get_name() << " purchased successfully" << endl;
-        cout << "Your new balance is " << this->money << endl
-             << endl;
     }
 
     void remove_item(Item *item, int price)
@@ -109,7 +107,7 @@ public:
         }
         else if (itemType == "Armor")
         {
-            vector<Item*>::iterator it = find(this->inventory.at(1).begin(), this->inventory.at(0).end(), item);
+            vector<Item*>::iterator it = find(this->inventory.at(1).begin(), this->inventory.at(1).end(), item);
             if(it != this->inventory.at(1).end()) {
                 this->inventory.at(1).erase(it);
                 this->money += price;
@@ -117,7 +115,7 @@ public:
         }
         else
         {
-            vector<Item*>::iterator it = find(this->inventory.at(2).begin(), this->inventory.at(0).end(), item);
+            vector<Item*>::iterator it = find(this->inventory.at(2).begin(), this->inventory.at(2).end(), item);
             if(it != this->inventory.at(2).end()) {
                 this->inventory.at(2).erase(it);
                 this->money += price;
@@ -132,23 +130,18 @@ public:
     
 
     void display_inventory() {
+        cout << "-------------------------------------------------------" << endl;
+        cout << "Inventory: " << endl;
         for(unsigned i = 0; i < this->inventory.size(); i++) {
             for(unsigned j = 0; j < this->inventory.at(i).size(); j++) {
                 cout << this->inventory.at(i).at(j)->get_name() << endl;
             }
         }
+        cout << "-------------------------------------------------------" << endl;
     }
 
-    vector<Item*> get_inventory() {
-        vector<Item*> temp;
-        for(unsigned i = 0; i < this->inventory.size(); i++) {
-            for(unsigned j = 0; j < this->inventory.at(i).size(); j++) {
-                temp.push_back(this->inventory.at(i).at(j));
-            }
-        }
-
-        return temp;
-
+    vector<vector<Item*>>* get_inventory() {
+        return &this->inventory;
     }
 
     int get_money()

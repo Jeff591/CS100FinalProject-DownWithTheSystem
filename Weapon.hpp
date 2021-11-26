@@ -29,6 +29,7 @@ class ByteWeapon : public Weapon
       name = "ByteWeapon";
       description = "Weapon made of a byte of code. It may be a simple weapon, but it does byte!";
       attack = 5;
+      itemType = "Weapon";
     }
     
 };

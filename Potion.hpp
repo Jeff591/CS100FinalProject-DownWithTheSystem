@@ -10,7 +10,6 @@ class Potion : public Item
   protected:
     int alter;
     string type;
-    string itemType;
   public:
     Potion(){}
     int get_sell_price(){return sell_price;} 
