@@ -10,21 +10,23 @@
 #include "Potion.hpp"
 #include "skillset.hpp"
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
 class Player : public Character
 {
-  protected:
-    vector<vector<Item*>> inventory;
-    Weapon* currentWeapon = nullptr;
-    Armor* currentArmor = nullptr;
-    SkillSet* mainSkill = nullptr;
-    SkillSet* comboSkill = nullptr;
+protected:
+    // 0: Weapon, 1: Armor, 2: Potion
+    // Equipped item will be in index 0 for each vector
+    vector<vector<Item *>> inventory = vector<vector<Item *>>(3, vector<Item *>());
     int money = 0;
+    Weapon *currentWeapon = nullptr;
+    Armor *currentArmor = nullptr;
+    SkillSet *mainSkill = nullptr;
+    SkillSet *comboSkill = nullptr;
 
-  public:
-
+public:
     Player(){};
     ~Player()
     {
@@ -62,29 +64,121 @@ class Player : public Character
     SkillSet* get_skill1()
     {
       return mainSkill;
-    }    
-
+    }
+    
     SkillSet* get_skill2()
     {
       return comboSkill;
     } 
     
-    void check_stats() {
-      cout << "-------------------------------------------------------" << endl;
-      cout << "Player stats: " << endl;
-      cout << "Health: " << this->get_health() << endl;
-      cout << "Power: " << this->get_power() << endl;
-      cout << "Defense: " << this->get_defense() << endl;
-      cout << "Speed: " << this->get_defense() << endl;
-      cout << "-------------------------------------------------------" << endl;
-      cout << "Item stats: " << endl;
-      if(this->currentWeapon != nullptr) this->currentWeapon->check_stats();
-      if(this->currentArmor != nullptr) this->currentArmor->check_stats();
-      for(unsigned i = 0; i < this->inventory.at(2).size(); i++) {
-        this->inventory.at(2).at(i)->check_stats();
-      }
-      cout << "-------------------------------------------------------" << endl;
+    void check_stats()
+    {
+        cout << "-------------------------------------------------------" << endl;
+        cout << "Player stats: " << endl;
+        cout << "Health: " << this->get_health() << endl;
+        cout << "Power: " << this->get_power() << endl;
+        cout << "Defense: " << this->get_defense() << endl;
+        cout << "Speed: " << this->get_defense() << endl;
+        cout << "-------------------------------------------------------" << endl;
+        cout << "Item stats: " << endl;
+        if (this->currentWeapon != nullptr)
+        {
+            this->currentWeapon->check_stats();
+            cout << endl;
+        }
+        if (this->currentArmor != nullptr)
+        {
+            this->currentArmor->check_stats();
+            cout << endl;
+        }
+        for (unsigned i = 0; i < this->inventory.at(2).size(); i++)
+        {
+            this->inventory.at(2).at(i)->check_stats();
+            cout << endl;
+        }
+        cout << "-------------------------------------------------------" << endl;
     }
+
+    void add_item(Item *item, int price)
+    {
+        if (this->money < price)
+        {
+            cout << "You don't have enough money to purchase this item." << endl
+                 << endl;
+            return;
+        }
+
+        this->money -= price;
+
+        string itemType = item->get_item_type();
+
+        if (itemType == "Weapon")
+        {
+            this->inventory.at(0).push_back(item);
+        }
+        else if (itemType == "Armor")
+        {
+            this->inventory.at(1).push_back(item);
+        }
+        else
+        {
+            this->inventory.at(2).push_back(item);
+        }
+
+        cout << item->get_name() << " purchased successfully" << endl;
+    }
+    
+    void remove_item(Item *item, int price)
+    {
+        string itemType = item->get_item_type();
+
+        if (itemType == "Weapon")
+        {
+            vector<Item*>::iterator it = find(this->inventory.at(0).begin(), this->inventory.at(0).end(), item);
+            if(it != this->inventory.at(0).end()) {
+                this->inventory.at(0).erase(it);
+                this->money += price;
+            }
+        }
+        else if (itemType == "Armor")
+        {
+            vector<Item*>::iterator it = find(this->inventory.at(1).begin(), this->inventory.at(1).end(), item);
+            if(it != this->inventory.at(1).end()) {
+                this->inventory.at(1).erase(it);
+                this->money += price;
+            }
+        }
+        else
+        {
+            vector<Item*>::iterator it = find(this->inventory.at(2).begin(), this->inventory.at(2).end(), item);
+            if(it != this->inventory.at(2).end()) {
+                this->inventory.at(2).erase(it);
+                this->money += price;
+            }
+        }
+
+        cout << item->get_name() << " sold successfully" << endl;
+        delete item;
+        cout << "Your new balance is " << this->money << endl
+             << endl;
+    }
+    
+
+    void display_inventory() {
+        cout << "-------------------------------------------------------" << endl;
+        cout << "Inventory: " << endl;
+        for(unsigned i = 0; i < this->inventory.size(); i++) {
+            for(unsigned j = 0; j < this->inventory.at(i).size(); j++) {
+                cout << this->inventory.at(i).at(j)->get_name() << endl;
+            }
+        }
+        cout << "-------------------------------------------------------" << endl;
+    }
+
+    vector<vector<Item*>>* get_inventory() {
+        return &this->inventory;
+    }
+
     
     int set_money(int amount)
     {
@@ -94,11 +188,6 @@ class Player : public Character
     int get_money()
     {
       return money;
-    }
-
-    vector<vector<Item*>> get_inventory() 
-    {
-      return inventory;
     }
 
     Armor* get_current_armor()
@@ -116,7 +205,7 @@ class Player : public Character
 
 class Defender : public Player
 {
-  public:
+public:
     Defender()
     {
       health = 25;
@@ -131,7 +220,7 @@ class Defender : public Player
 
 class Cleaner : public Player
 {
-  public:
+public:
     Cleaner()
     {
       health = 25;
@@ -147,7 +236,7 @@ class Cleaner : public Player
 
 class Firewall : public Player
 {
-  public:
+public:
     Firewall()
     {
       health = 35;
