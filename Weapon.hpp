@@ -11,6 +11,10 @@ class Weapon : public Item
     int attack;
   public:
     Weapon(){}
+    ~Weapon()
+    {
+      delete this;
+    }
     int get_sell_price(){return sell_price;} 
     string get_weapon_name(){return name;} 
     string get_weapon_description(){return description;} 
@@ -55,8 +59,7 @@ class MegaWeapon : public Weapon
       name = "MegaWeapon";
       description = "Weapon made of a megabyte of code. It has a mega personality to go along with its mega size";
       attack = 15;
-    }
-    
+    }   
 };
 
 class GigaWeapon : public Weapon
@@ -68,8 +71,7 @@ class GigaWeapon : public Weapon
       name = "GigaWeapon";
       description = "Weapon made of a gigabyte of code. This giga-hurts, well for the victim on the sharp side anyways.";
       attack = 20;
-    }
-    
+    }   
 };
 
 class TeraWeapon : public Weapon
@@ -82,7 +84,6 @@ class TeraWeapon : public Weapon
       description = "Legendary weapon infused with a terabyte of code. The pinnacle of weapons that code can make. Trust me we tried to make a better weapon, but we don't have the storage for it...";
       attack = 25;
     }
-    
 };
 
 #endif
