@@ -398,7 +398,7 @@ class Game
       else if(action == "health_potion")
       {
         {
-          if(playerChar->get_inventory().at(2).size() <= 0)
+          if(playerChar->get_inventory()->at(2).size() <= 0)
           {
             cout << "You have no more health potions" << endl;
           }
@@ -406,7 +406,7 @@ class Game
           {
             battle_health += 15;
             
-            playerChar->get_inventory().at(2).pop_back();
+            playerChar->get_inventory()->at(2).pop_back();
           }
         }
       }
