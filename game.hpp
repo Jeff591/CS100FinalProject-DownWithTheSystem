@@ -328,7 +328,14 @@ class Game
           gameOver = true;
           return;
         }
-        attack_damage = skill1->unique_skill(battle_health) + playerChar->attack(opponent);
+	if(skill1->get_name() == "Rebuild")//TEST
+        {
+          attack_damage = skill1->unique_skill(battle_health);
+        }
+        else
+        {
+          attack_damage = skill1->unique_skill(battle_health) + playerChar->attack(opponent);
+        }
         cout << playerChar->get_name() << " does " << attack_damage << " to " << opponent->get_name() << endl;
         opponent->set_health(attack_damage);
         if(battle_health <=0)
@@ -340,7 +347,14 @@ class Game
       }
       else if(action == "skill" && opponent->get_speed() <= playerChar->get_speed())
       {
-        attack_damage = skill1->unique_skill(battle_health) + playerChar->attack(opponent);
+        if(skill1->get_name() == "Rebuild")
+        {
+          attack_damage = skill1->unique_skill(battle_health);
+        }
+        else
+        {
+          attack_damage = skill1->unique_skill(battle_health) + playerChar->attack(opponent);
+        }
         cout << playerChar->get_name() << " does " << attack_damage << " to " << opponent->get_name() << endl;
         opponent->set_health(attack_damage);
         if(battle_health <=0)
