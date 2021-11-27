@@ -32,8 +32,14 @@ public:
     {
       delete mainSkill;
       delete comboSkill;
-      delete currentArmor;
-      delete currentWeapon;
+      if (currentWeapon != nullptr) 
+      {
+        delete currentWeapon;
+      }
+      if (currentArmor != nullptr)
+      {
+         delete currentArmor;
+      }
       for (unsigned int i = 0; i < inventory.size(); i++)
       {
         for(unsigned int j = 0; j < inventory.at(i).size(); j++)
@@ -105,6 +111,9 @@ public:
         {
             cout << "You don't have enough money to purchase this item." << endl
                  << endl;
+            cout << "Item: " << item->get_name() << " Type: " << item->get_item_type() <<  endl;
+	    delete item;
+            item = nullptr;
             return;
         }
 
