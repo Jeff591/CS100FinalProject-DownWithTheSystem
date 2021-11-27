@@ -1,7 +1,7 @@
 #include "enemy.h"
 
 int Enemy::attack(Character* opponent) {
-    Player* player = static_cast<Player*>(opponent);
+    Player* player = dynamic_cast<Player*>(opponent);
     int damageDealt;
     if(player->get_current_armor() == nullptr)
     {
