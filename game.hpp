@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include "enemy.h"
 #include "skillset.hpp"
+#include "town.hpp"
 
 using namespace std;
 
@@ -22,6 +23,7 @@ class Game
     Dungeon* level3 = new Dungeon3();
     Dungeon* level4 = new Dungeon4();
     Dungeon* level5 = new Dungeon5();
+    Town* town = nullptr;   
   public:
     Game(){};
     ~Game()
@@ -31,11 +33,13 @@ class Game
       delete level3;
       delete level4;
       delete level5;
+      delete town;
       delete playerChar;
     }
     void runGame()
     {
       create_character();
+      town  = new Town(playerChar);
       clearScreen();
       cin.ignore();
       cout << "Health: " << playerChar->get_health() <<endl;
@@ -47,10 +51,15 @@ class Game
       
 
       clearScreen();
+      intermission();
       battle(level1);
+      intermission();
       battle(level2);
+      intermission();
       battle(level3);
+      intermission();
       battle(level4);
+      intermission();
       battle(level5);
     }
 
@@ -268,7 +277,7 @@ class Game
       int attack_damage;
       SkillSet* skill1 = playerChar->get_skill1();
       SkillSet* skill2 = playerChar->get_skill2();
-      if((action == "skill" && skill1->get_name() == "ShieldBash") || (action == "combo_skill" && skill2->get_name() == "ShieldBash+Rebuild") || (action == "combo_skill" && skill2->get_name() == "CleanSweep+ShieldBash"))
+      if((action == "skill" && skill1->get_name() == "ShieldBash") || (action == "combo_skill" && skill2->get_name() == "ShieldBash + Rebuild") || (action == "combo_skill" && skill2->get_name() == "CleanSweep + ShieldBash"))
       {
         if(battle_health <= 0) 
         {
@@ -417,6 +426,99 @@ class Game
       return;
     }
     
+    void intermission()
+    {
+      bool select = false;
+      while(select == false)
+      {
+        string choice;
+        cout << "What would you like to do before continuing to the next battle?" << endl;
+        cout << "1. Check Inventory" << endl;
+        cout << "2. Check Stats" << endl;
+        cout << "3. Visit the Town to buy items" << endl;
+        cout << "4. Visit the Town to sell items" << endl;
+        cout << "5. Change current weapon" << endl;
+        cout << "6. Change current armor" << endl;
+        cout << "7. Continue to the next battle" << endl;
+        cin >> choice;
+        if (choice == "1")
+        {
+          playerChar->display_inventory();
+        }
+        else if (choice == "2")
+        {
+          playerChar->check_stats();
+        }
+        else if (choice == "3")
+        {
+          town->buy();
+        }
+        else if (choice == "4")
+        {
+          town->sell();
+        }
+        else if (choice == "5") 
+        {
+          choose_weapon();
+        }
+        else if (choice == "6")
+        {
+          choose_armor();
+        }
+        else if (choice == "7")
+        {
+          return;
+        }
+        else
+        {
+          cout << "Invalid input" << endl;
+        }
+      }
+    }
+
+    void choose_weapon()
+    {
+      string choice;
+      if (playerChar->get_inventory()->at(0).size() == 0)
+      {
+        cout << "No weapons to equip" << endl;
+        return;
+      }
+      cout << "Weapons List: " << endl;
+      cout << "---------------------------------------------------------" << endl;
+      for (unsigned int i = 0; i < playerChar->get_inventory()->at(0).size(); i++)
+      {
+        cout << i+1 << ". " << playerChar->get_inventory()->at(0).at(i)->get_name() << endl;
+      }
+      cout << "---------------------------------------------------------" << endl;
+      cout << "Which weapon would you like to equip? (Please put the name of the weapon)" << endl;
+      cin >> choice;
+      playerChar->set_current_weapon(choice);
+      return;
+    }
+
+    void choose_armor()
+    {
+      string choice;
+      if(playerChar->get_inventory()->at(1).size() == 0)
+      {
+        cout << "No armor to equip" << endl;
+        return;
+      }
+      cout << "---------------------------------------------------------" << endl;
+      cout << "Armor List: " << endl;
+      for (unsigned int i = 0; i < playerChar->get_inventory()->at(1).size(); i++)
+      {
+        cout << i+1 << ". " << playerChar->get_inventory()->at(1).at(i)->get_name() << endl;
+      }
+      cout << "---------------------------------------------------------" << endl;
+      cout << "Which armor would you like to put on? (Please put the name of the armor)" << endl;
+      cin >> choice;
+      playerChar->set_current_armor(choice);
+      return;
+      
+    }
+
     void clearScreen()
     {
       cout << "\033[2J\033[1;1H";
