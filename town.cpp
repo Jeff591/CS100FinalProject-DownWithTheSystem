@@ -276,7 +276,15 @@ void Town::buyConfirmation(Item *item, int price) {
                 break;
             case 2:
                 cout << "Item purchase cancelled." << endl;
-                delete item;
+                if (item->get_item_type() == "Potion")
+		{
+		  Potion* dele =  dynamic_cast<Potion*> (item);
+                  delete dele;
+		}
+		else
+		{
+                  delete item;
+                }
                 break;
             default:
                 cout << "Invalid option." << endl << endl;

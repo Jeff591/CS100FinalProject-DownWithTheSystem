@@ -10,6 +10,8 @@
 #include "enemy.h"
 #include "skillset.hpp"
 #include "town.hpp"
+#include "Potion.hpp"
+#include "Armor.hpp"
 
 using namespace std;
 
@@ -48,7 +50,7 @@ class Game
       cout << "Speed: " << playerChar->get_speed() <<endl;
       cout << "Test Worked" << endl;
       cin.ignore();
-      
+          
 
       clearScreen();
       intermission();
@@ -427,7 +429,9 @@ class Game
           else
           {
             battle_health += 15;
-            
+            Item* item = playerChar->get_inventory()->at(2).at(playerChar->get_inventory()->at(2).size()-1);
+            Potion* dele = dynamic_cast<Potion*> (item);
+            delete dele;
             playerChar->get_inventory()->at(2).pop_back();
           }
 	  battle_health -= opponent->attack(playerChar);

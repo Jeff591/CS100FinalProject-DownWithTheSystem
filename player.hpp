@@ -44,7 +44,16 @@ public:
       {
         for(unsigned int j = 0; j < inventory.at(i).size(); j++)
         {
-          delete inventory.at(i).at(j);
+          Item* item = inventory.at(i).at(j);
+          if (item->get_item_type() == "Potion")
+          {
+            Potion* dele = dynamic_cast<Potion*> (item);
+            delete dele;
+          }
+          else
+          {
+            delete item;
+          }
         }
       }
     }
@@ -111,7 +120,14 @@ public:
         {
             cout << "You don't have enough money to purchase this item." << endl
                  << endl;
-            cout << "Item: " << item->get_name() << " Type: " << item->get_item_type() <<  endl;
+            if (item->get_item_type() == "Potion")
+	    {
+  	      Potion* dele = dynamic_cast<Potion*> (item);
+  	      delete dele;
+              dele = nullptr;
+              item = nullptr;
+              return;
+	    }
 	    delete item;
             item = nullptr;
             return;
@@ -167,7 +183,17 @@ public:
         }
 
         cout << item->get_name() << " sold successfully" << endl;
-        delete item;
+        if (item->get_item_type() == "Potion")
+        {
+          Potion* dele = dynamic_cast<Potion*> (item);
+          delete dele;
+          dele = nullptr;
+        }
+        else
+        {
+          delete item;
+          item = nullptr;
+        }
         cout << "Your new balance is " << this->money << endl
              << endl;
     }
