@@ -280,7 +280,6 @@ void Town::buyConfirmation(Item *item, int price) {
                 break;
             default:
                 cout << "Invalid option." << endl << endl;
-                delete item;
                 break;
         }
     }

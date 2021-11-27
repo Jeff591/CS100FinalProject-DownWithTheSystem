@@ -442,6 +442,10 @@ class Game
     
     void intermission()
     {
+      if(gameOver == true)
+      {
+        return;
+      }
       bool select = false;
       while(select == false)
       {
