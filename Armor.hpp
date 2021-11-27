@@ -11,10 +11,6 @@ class Armor : public Item
     int defense;
   public:
     Armor(){}
-    ~Armor()
-    {
-      delete this;
-    }
     int get_sell_price(){return sell_price;} 
     string get_armor_name(){return name;} 
     string get_armor_description(){return description;} 

@@ -11,10 +11,6 @@ class Weapon : public Item
     int attack;
   public:
     Weapon(){}
-    ~Weapon()
-    {
-      delete this;
-    }
     int get_sell_price(){return sell_price;} 
     string get_weapon_name(){return name;} 
     string get_weapon_description(){return description;} 

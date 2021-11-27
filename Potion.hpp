@@ -12,10 +12,6 @@ class Potion : public Item
     string type;
   public:
     Potion(){}
-    ~Potion()
-    {
-      delete this;
-    }
     int get_sell_price(){return sell_price;} 
     string get_potion_name(){return name;} 
     string get_potion_description(){return description;} 
