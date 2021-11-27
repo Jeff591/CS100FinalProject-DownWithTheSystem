@@ -301,9 +301,9 @@ class Cleaner : public Player
 public:
     Cleaner()
     {
-      health = 25;
-      power = 8;
-      defense = 3;
+      health = 35;
+      power = 9;
+      defense = 4;
       speed = 7;
       name = "Cleaner";
       mainSkill = new CleanSweep();
@@ -317,7 +317,7 @@ class Firewall : public Player
 public:
     Firewall()
     {
-      health = 35;
+      health = 45;
       power = 5;
       defense = 5;
       speed = 5;
