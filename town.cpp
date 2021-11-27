@@ -42,7 +42,7 @@ void Town::buy(){
 
                     switch(response2) {
                         case 1:
-                            this->buyConfirmation(new ByteWeapon(), ByteArmor().get_sell_price());
+                            this->buyConfirmation(new ByteWeapon(), ByteWeapon().get_sell_price());
                             break;
                         case 2:
                             this->buyConfirmation(new KiloWeapon(), KiloWeapon().get_sell_price());
@@ -276,6 +276,7 @@ void Town::buyConfirmation(Item *item, int price) {
                 break;
             case 2:
                 cout << "Item purchase cancelled." << endl;
+                delete item;
                 break;
             default:
                 cout << "Invalid option." << endl << endl;
