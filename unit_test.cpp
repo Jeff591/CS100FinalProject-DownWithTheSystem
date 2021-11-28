@@ -135,6 +135,77 @@ TEST(BattleTests, SimulateAttack)
   delete opponent;
 }
 
+TEST(PlayerGetters, Skill1)
+{
+  Player* defender = new Defender();
+  Player* cleaner = new Cleaner();
+  Player* firewall = new Firewall();
+
+  EXPECT_EQ(defender->get_skill1()->get_name(), "ShieldBash");
+  EXPECT_EQ(cleaner->get_skill1()->get_name(), "CleanSweep");
+  EXPECT_EQ(firewall->get_skill1()->get_name(), "Rebuild");
+
+  delete defender;
+  delete cleaner;
+  delete firewall;
+
+}
+
+TEST(PlayerGetters, Skill2)
+{
+  Player* defender = new Defender();
+  Player* cleaner = new Cleaner();
+  Player* firewall = new Firewall();
+
+  EXPECT_EQ(defender->get_skill2()->get_name(), "ShieldBash + Rebuild");
+  EXPECT_EQ(cleaner->get_skill2()->get_name(), "CleanSweep + ShieldBash");
+  EXPECT_EQ(firewall->get_skill2()->get_name(), "Rebuild + CleanSweep");
+
+  delete defender;
+  delete cleaner;
+  delete firewall;
+}
+
+TEST(PlayerGetters, Money)
+{
+  Player* player = new Defender();
+  EXPECT_EQ(player->get_money(), 0);
+
+  player->set_money(1000);
+
+  EXPECT_EQ(player->get_money(), 1000);
+
+}
+
+TEST(PlayerGetters, CurrentArmor)
+{
+  Player* player = new Defender();
+  EXPECT_EQ(player->get_current_armor(), nullptr);
+
+  player->add_item(new KiloArmor(), 0);
+
+  player->set_current_armor("KiloArmor");
+
+  EXPECT_EQ(player->get_current_armor()->get_name(), "KiloArmor");
+
+  delete player;
+
+}
+
+TEST(PlayerGetters, CurrentWeapon)
+{
+  Player* player = new Defender();
+  EXPECT_EQ(player->get_current_weapon(), nullptr);
+
+  player->add_item(new MegaWeapon(), 0);
+
+  player->set_current_weapon("MegaWeapon");
+
+  EXPECT_EQ(player->get_current_weapon()->get_name(), "MegaWeapon");
+
+  delete player;
+}
+
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
