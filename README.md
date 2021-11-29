@@ -102,7 +102,9 @@ Authors: [Jeffrey Hata](https://github.com/Jeff591), [Cameron Fong](https://gith
 
 
  ## Installation/Usage
- > Instructions on installing and running your application
+ > 1. To install the game, copy the repository on to a linux console by using git clone --recursive https://github.com/cs100/final-project-jhata004-cfong027-pgonz028-nwong063.git
+ > 2. Once the directory is downloaded, run the commands "cmake3 ." and "make" to create the main executable.
+ > 3. Once the executable is made, put in "./main" into the command-line and enjoy!
  ## Testing
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
  
