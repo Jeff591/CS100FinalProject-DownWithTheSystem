@@ -174,6 +174,8 @@ TEST(PlayerGetters, Money)
   player->set_money(1000);
 
   EXPECT_EQ(player->get_money(), 1000);
+  
+  delete player;
 
 }
 
