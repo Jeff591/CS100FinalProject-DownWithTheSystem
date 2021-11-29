@@ -68,7 +68,39 @@ Authors: [Jeffrey Hata](https://github.com/Jeff591), [Cameron Fong](https://gith
  > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
  
  ## Screenshots
- > Screenshots of the input/output after running your application
+ >
+ > ![Character_Creation](https://user-images.githubusercontent.com/67081225/143794771-c8637156-2b8e-44eb-813b-1d7c942d1479.PNG)
+ > 
+ > * Creation of the main character
+ > 
+ > ![Battle](https://user-images.githubusercontent.com/67081225/143794808-735784a6-4f89-4788-96eb-4e5e918d752d.PNG)
+ > 
+ > * Main battle screen
+ > 
+ > ![Skill_Select](https://user-images.githubusercontent.com/67081225/143794836-434902d7-def7-46b6-a2b9-36e4fa650c70.PNG)
+ > 
+ > * Selecting a skill during battle
+ >
+ >![Buy](https://user-images.githubusercontent.com/67081225/143794940-cbffc131-e592-473f-a2dc-897d9fe15644.PNG)
+ >
+ > * Main buying screen
+ > 
+ > ![Sell](https://user-images.githubusercontent.com/67081225/143794969-2a3679e7-b145-4219-8c44-ff8ce4183c53.PNG)
+ > * Main selling screen
+ > 
+ > ![Inventory](https://user-images.githubusercontent.com/67081225/143795007-819c2e18-e217-4bc9-9821-ab131db7635a.PNG)
+ > 
+ > * Inventory screen 
+ > 
+ > ![Check Stats](https://user-images.githubusercontent.com/67081225/143795041-8f7a4387-05ad-4061-ae19-d866bc4be014.PNG)
+ > 
+ > * Checking player stats screen
+ > 
+ > ![Death and Valgrind](https://user-images.githubusercontent.com/67081225/143795232-5a917173-579b-4279-ac64-49d6cac42af8.PNG)
+ > * The game over screen along with a valgrind report showing memcheck clean
+
+
+
  ## Installation/Usage
  > Instructions on installing and running your application
  ## Testing
