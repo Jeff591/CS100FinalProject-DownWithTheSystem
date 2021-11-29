@@ -205,6 +205,34 @@ TEST(BattleTests, SimulateAttack)
   delete opponent;
 }
 
+TEST(BattleTests, SimulateSkill)
+{
+  Game* mainGame = new Game();
+  mainGame->set_class("Cleaner"); 
+  Enemy* opponent = new Bug();
+  int battle_health = mainGame->get_player()->get_health();
+  mainGame->action_phase("skill", battle_health, opponent);
+  EXPECT_EQ(battle_health, 27);
+  EXPECT_EQ(opponent->get_health(), 5);
+  delete mainGame;
+  delete opponent;
+}
+
+TEST(BattleTests, SimulatePotion)
+{
+  Game* mainGame = new Game();
+  mainGame->set_class("Defender"); 
+  Enemy* opponent = new Bug();
+  int battle_health = mainGame->get_player()->get_health();
+  mainGame->action_phase("attack", battle_health, opponent);
+  mainGame->get_player()->AddItemTest(new HealthPotion());
+  mainGame->action_phase("potion", battle_health, opponent);
+  EXPECT_EQ(battle_health, 24);
+  EXPECT_EQ(opponent->get_health(), 12);
+  delete mainGame;
+  delete opponent;
+}
+
 TEST(PlayerGetters, Skill1)
 {
   Player* defender = new Defender();
@@ -275,6 +303,134 @@ TEST(PlayerGetters, CurrentWeapon)
 
   EXPECT_EQ(player->get_current_weapon()->get_name(), "MegaWeapon");
 
+  delete player;
+}
+
+TEST(EnemyTests, BugAttack)
+{
+  Player* player = new Defender();
+  Enemy* opponent = new Bug();
+  int damage = opponent->attack(player);
+  EXPECT_EQ(damage, 1);
+  delete player;
+  delete opponent;
+}
+
+TEST(EnemyTests, WormAttack)
+{
+  Player* player = new Defender();
+  Enemy* opponent = new Worm();
+  int damage = opponent->attack(player);
+  EXPECT_EQ(damage, 1);
+  delete player;
+  delete opponent;
+}
+
+
+TEST(EnemyTests, PopUpAdAttack)
+{
+  Player* player = new Defender();
+  Enemy* opponent = new PopUpAd();
+  int damage = opponent->attack(player);
+  EXPECT_EQ(damage, 2);
+  delete player;
+  delete opponent;
+}
+
+TEST(EnemyTests, SpywareAttack)
+{
+  Player* player = new Defender();
+  Enemy* opponent = new Spyware();
+  int damage = opponent->attack(player);
+  EXPECT_EQ(damage, 2);
+  delete player;
+  delete opponent;
+}
+
+TEST(EnemyTests, VirusAttack)
+{
+  Player* player = new Defender();
+  Enemy* opponent = new Virus();
+  int damage = opponent->attack(player);
+  EXPECT_EQ(damage, 2);
+  delete player;
+  delete opponent;
+}
+
+TEST(EnemyTests, TrojanHorseAttack)
+{
+  Player* player = new Defender();
+  Enemy* opponent = new TrojanHorse();
+  int damage = opponent->attack(player);
+  EXPECT_EQ(damage, 3);
+  delete player;
+  delete opponent;
+}
+
+TEST(EnemyTests, CorruptedMotherboardAttack)
+{
+  Player* player = new Defender();
+  Enemy* opponent = new CorruptedMotherboard();
+  int damage = opponent->attack(player);
+  EXPECT_EQ(damage, 7);
+  delete player;
+  delete opponent;
+}
+
+TEST (EnemyTests, SetHealth)
+{
+  Enemy* opponent = new Bug();
+  opponent->set_health(5);
+  EXPECT_EQ(opponent->get_health(), 10);
+  delete opponent;
+}
+
+TEST (CharacterTests, GetHealth)
+{
+  Player* player = new Defender();
+  EXPECT_EQ(player->get_health(), 25);
+  delete player;
+}
+
+TEST (CharacterTests, GetPower)
+{
+  Player* player = new Defender();
+  EXPECT_EQ(player->get_power(), 5);
+  delete player;
+}
+
+TEST (CharacterTests, GetDefense)
+{
+  Player* player = new Defender();
+  EXPECT_EQ(player->get_defense(), 7);
+  delete player;
+}
+
+TEST (CharacterTests, GetSpeed)
+{
+  Player* player = new Defender();
+  EXPECT_EQ(player->get_speed(), 3);
+  delete player;
+}
+
+TEST (CharacterTests, GetNameDefender)
+{
+  Player* player = new Defender();
+  EXPECT_EQ(player->get_name(), "Defender");
+  delete player;
+}
+
+TEST (CharacterTests, GetNameCleaner)
+{
+  Player* player = new Cleaner();
+  EXPECT_EQ(player->get_name(), "Cleaner");
+  delete player;
+}
+
+TEST (CharacterTests, GetNameFirewall)
+{
+  Player* player = new Firewall();
+  EXPECT_EQ(player->get_name(), "Firewall");
   delete player;
 }
 
