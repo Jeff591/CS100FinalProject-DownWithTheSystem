@@ -107,7 +107,6 @@ Authors: [Jeffrey Hata](https://github.com/Jeff591), [Cameron Fong](https://gith
  > 2. Once the directory is downloaded, run the commands "cmake3 ." and "make" to create the main executable.
  > 3. Once the executable is made, put in "./main" into the command-line and enjoy!
  ## Testing
- > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
- > We created unit tests using googletest to check our functions. The functions we decided to include in our testing were mostly getter functions as well as setter functions.
- > Functions that mainly served to output text to the console or took in user input were not tested through googletest but instead tested manually through playing the game several times to make sure the inputs were read correctly and the ouput was what we expected.
+ > * We created unit tests using googletest to check our functions. The functions we decided to include in our testing were mostly getter functions as well as setter functions.
+ > * Functions that mainly served to output text to the console or took in user input were not tested through googletest but instead tested manually through playing the game several times to make sure the inputs were read correctly and the ouput was what we expected.
  
