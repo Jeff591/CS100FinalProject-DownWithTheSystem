@@ -34,7 +34,7 @@ Authors: [Jeffrey Hata](https://github.com/Jeff591), [Cameron Fong](https://gith
  >  
  > 
 ## Class Diagram
- > ![Phase II_ UML Diagram](https://user-images.githubusercontent.com/66803305/140859382-7287ddb1-753d-4317-b917-dfb21aecfc03.png)
+ > ![Phase II_ UML Diagram](https://user-images.githubusercontent.com/67081225/143795407-69265701-7665-455a-b875-07eb96a0cdd5.png)
  > [UML Diagram](https://lucid.app/publicSegments/view/65744f78-3fde-48ce-ae6d-6c075e1613d7/image.jpeg)
  > * Game client: The game starts with our main or the game client including the player class through a composition between the two to know what type of player (Defender, Cleaner, or firewall) will be used for the player and calls on runGame to start the game.
  > * Player class: The player class includes several private members including a vector of vector of items to represent the inventory with a composition connection to the items class, a composition connection to skillset to represent a unique skill each type of character will have, int money to represent money the player has, and currentWeapon and currentArmor pointers to represent which weapon/armor respectively the player current has. The player class also has several public member functions which include attack(opponent: Character*) calculated by the total attack (weapon+player’s natural attack) on which how much damage the opponent takes, equip() which selects what weapon currentWeapon and what armor currentArmor will store, use_skills for the player to use their particular special skill, set_skills for setting the player with their respective skill after their character class is chosen, use_item to use potions while in battles, and check_stats to see the player’s health, power, defense, and speed with included values of the particular weapon/armor currently equipped.
@@ -52,7 +52,7 @@ Authors: [Jeffrey Hata](https://github.com/Jeff591), [Cameron Fong](https://gith
 > 
  
  > ## Phase III
- > ![Phase II_ UML Diagram (2)](https://user-images.githubusercontent.com/66803305/142055730-6c4156ee-15ce-4aff-b667-97da7e300d3d.png)
+ > ![Phase II_ UML Diagram](https://user-images.githubusercontent.com/67081225/143795426-eed4b3b3-9b42-4f30-a4c3-c7fa74c69e46.png)
  > [UML Diagram](https://lucid.app/publicSegments/view/65744f78-3fde-48ce-ae6d-6c075e1613d7/image.jpeg)
  > * Strategy Pattern for the SkillSet Classes
  >   * We chose to use the strategy pattern to help implement the SkillSet classes because we wanted the player to be able to select their battle skills depending on the character they chose. The SkillSet class acts as the abstract strategy and gives the interface to its derived classes which each act as concrete strategies. This design pattern helped us write better code by allowing us to better organize the skills we want to implement and expand the number of skills if we want to in the future. It also made it easier for certain character classes to have their own unique battle options.
