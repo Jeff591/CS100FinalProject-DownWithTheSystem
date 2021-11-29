@@ -34,7 +34,7 @@ Authors: [Jeffrey Hata](https://github.com/Jeff591), [Cameron Fong](https://gith
  >  
  > 
 ## Class Diagram
- > ![Phase II_ UML Diagram](https://user-images.githubusercontent.com/66803305/140859382-7287ddb1-753d-4317-b917-dfb21aecfc03.png)
+ > ![Phase II_ UML Diagram](https://user-images.githubusercontent.com/67081225/143795407-69265701-7665-455a-b875-07eb96a0cdd5.png)
  > [UML Diagram](https://lucid.app/publicSegments/view/65744f78-3fde-48ce-ae6d-6c075e1613d7/image.jpeg)
  > * Game client: The game starts with our main or the game client including the player class through a composition between the two to know what type of player (Defender, Cleaner, or firewall) will be used for the player and calls on runGame to start the game.
  > * Player class: The player class includes several private members including a vector of vector of items to represent the inventory with a composition connection to the items class, a composition connection to skillset to represent a unique skill each type of character will have, int money to represent money the player has, and currentWeapon and currentArmor pointers to represent which weapon/armor respectively the player current has. The player class also has several public member functions which include attack(opponent: Character*) calculated by the total attack (weapon+player’s natural attack) on which how much damage the opponent takes, equip() which selects what weapon currentWeapon and what armor currentArmor will store, use_skills for the player to use their particular special skill, set_skills for setting the player with their respective skill after their character class is chosen, use_item to use potions while in battles, and check_stats to see the player’s health, power, defense, and speed with included values of the particular weapon/armor currently equipped.
@@ -52,7 +52,7 @@ Authors: [Jeffrey Hata](https://github.com/Jeff591), [Cameron Fong](https://gith
 > 
  
  > ## Phase III
- > ![Phase II_ UML Diagram (2)](https://user-images.githubusercontent.com/66803305/142055730-6c4156ee-15ce-4aff-b667-97da7e300d3d.png)
+ > ![Phase II_ UML Diagram](https://user-images.githubusercontent.com/67081225/143795426-eed4b3b3-9b42-4f30-a4c3-c7fa74c69e46.png)
  > [UML Diagram](https://lucid.app/publicSegments/view/65744f78-3fde-48ce-ae6d-6c075e1613d7/image.jpeg)
  > * Strategy Pattern for the SkillSet Classes
  >   * We chose to use the strategy pattern to help implement the SkillSet classes because we wanted the player to be able to select their battle skills depending on the character they chose. The SkillSet class acts as the abstract strategy and gives the interface to its derived classes which each act as concrete strategies. This design pattern helped us write better code by allowing us to better organize the skills we want to implement and expand the number of skills if we want to in the future. It also made it easier for certain character classes to have their own unique battle options.
@@ -68,9 +68,45 @@ Authors: [Jeffrey Hata](https://github.com/Jeff591), [Cameron Fong](https://gith
  > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
  
  ## Screenshots
- > Screenshots of the input/output after running your application
+ >
+ > ![Character_Creation](https://user-images.githubusercontent.com/67081225/143794771-c8637156-2b8e-44eb-813b-1d7c942d1479.PNG)
+ > 
+ > * Creation of the main character
+ > 
+ > ![Battle](https://user-images.githubusercontent.com/67081225/143794808-735784a6-4f89-4788-96eb-4e5e918d752d.PNG)
+ > 
+ > * Main battle screen
+ > 
+ > ![Skill_Select](https://user-images.githubusercontent.com/67081225/143794836-434902d7-def7-46b6-a2b9-36e4fa650c70.PNG)
+ > 
+ > * Selecting a skill during battle
+ >
+ >![Buy](https://user-images.githubusercontent.com/67081225/143794940-cbffc131-e592-473f-a2dc-897d9fe15644.PNG)
+ >
+ > * Main buying screen
+ > 
+ > ![Sell](https://user-images.githubusercontent.com/67081225/143794969-2a3679e7-b145-4219-8c44-ff8ce4183c53.PNG)
+ > * Main selling screen
+ > 
+ > ![Inventory](https://user-images.githubusercontent.com/67081225/143795007-819c2e18-e217-4bc9-9821-ab131db7635a.PNG)
+ > 
+ > * Inventory screen 
+ > 
+ > ![Check Stats](https://user-images.githubusercontent.com/67081225/143795041-8f7a4387-05ad-4061-ae19-d866bc4be014.PNG)
+ > 
+ > * Checking player stats screen
+ > 
+ > ![Death and Valgrind](https://user-images.githubusercontent.com/67081225/143795232-5a917173-579b-4279-ac64-49d6cac42af8.PNG)
+ > * The game over screen along with a valgrind report showing memcheck clean
+
+
+
  ## Installation/Usage
- > Instructions on installing and running your application
+ > *Note: do not put "" into command-line input*
+ > 1. To install the game, copy the repository on to a linux console by using "git clone --recursive https://github.com/cs100/final-project-jhata004-cfong027-pgonz028-nwong063.git"
+ > 2. Once the directory is downloaded, run the commands "cmake3 ." and "make" to create the main executable.
+ > 3. Once the executable is made, put in "./main" into the command-line and enjoy!
  ## Testing
- > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
+ > * We created unit tests using googletest to check our functions. The functions we decided to include in our testing were mostly getter functions as well as setter functions.
+ > * Functions that mainly served to output text to the console or took in user input were not tested through googletest but instead tested manually through playing the game several times to make sure the inputs were read correctly and the ouput was what we expected.
  

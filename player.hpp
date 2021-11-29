@@ -32,13 +32,28 @@ public:
     {
       delete mainSkill;
       delete comboSkill;
-      delete currentArmor;
-      delete currentWeapon;
+      if (currentWeapon != nullptr) 
+      {
+        delete currentWeapon;
+      }
+      if (currentArmor != nullptr)
+      {
+         delete currentArmor;
+      }
       for (unsigned int i = 0; i < inventory.size(); i++)
       {
         for(unsigned int j = 0; j < inventory.at(i).size(); j++)
         {
-          delete inventory.at(i).at(j);
+          Item* item = inventory.at(i).at(j);
+          if (item->get_item_type() == "Potion")
+          {
+            Potion* dele = dynamic_cast<Potion*> (item);
+            delete dele;
+          }
+          else
+          {
+            delete item;
+          }
         }
       }
     }
@@ -105,6 +120,16 @@ public:
         {
             cout << "You don't have enough money to purchase this item." << endl
                  << endl;
+            if (item->get_item_type() == "Potion")
+	    {
+  	      Potion* dele = dynamic_cast<Potion*> (item);
+  	      delete dele;
+              dele = nullptr;
+              item = nullptr;
+              return;
+	    }
+	    delete item;
+            item = nullptr;
             return;
         }
 
@@ -158,7 +183,17 @@ public:
         }
 
         cout << item->get_name() << " sold successfully" << endl;
-        delete item;
+        if (item->get_item_type() == "Potion")
+        {
+          Potion* dele = dynamic_cast<Potion*> (item);
+          delete dele;
+          dele = nullptr;
+        }
+        else
+        {
+          delete item;
+          item = nullptr;
+        }
         cout << "Your new balance is " << this->money << endl
              << endl;
     }
@@ -199,7 +234,76 @@ public:
     {
       return currentWeapon;
     }
-    
+    void set_current_armor(string armor)
+    {
+      for(unsigned int i = 0; i < inventory.at(1).size(); i++)
+      {
+        if(armor == inventory.at(1).at(i)->get_name())
+        {
+          if(currentArmor != nullptr)
+          {
+            Item* tempArmorAdd = dynamic_cast<Item*>(currentArmor);
+            inventory.at(1).push_back(tempArmorAdd);
+            tempArmorAdd = nullptr;
+          }
+          Armor* tempArmor = dynamic_cast<Armor*>(inventory.at(1).at(i));
+          currentArmor = tempArmor;
+          Item* tempItem = inventory.at(1).at(i);
+          inventory.at(1).at(i) = inventory.at(1).at(inventory.at(1).size()-1);
+          inventory.at(1).at(inventory.at(1).size()-1) = tempItem;
+          inventory.at(1).pop_back();
+          tempItem = nullptr;
+          tempArmor = nullptr;
+          return;
+        }
+      }
+      cout << "Cannot find " << armor << endl;
+      return;
+    }
+
+    void set_current_weapon(string weapon)
+    {
+      for(unsigned int i = 0; i < inventory.at(0).size(); i++)
+      {
+        if(weapon == inventory.at(0).at(i)->get_name())
+        {
+          if(currentWeapon != nullptr)
+          {
+            Item* tempWeaponAdd = dynamic_cast<Item*>(currentWeapon);
+            inventory.at(0).push_back(tempWeaponAdd);
+            tempWeaponAdd = nullptr;
+          }
+          Weapon* tempWeapon = dynamic_cast<Weapon*>(inventory.at(0).at(i));
+          currentWeapon = tempWeapon;
+          Item* tempItem = inventory.at(0).at(i); 
+          inventory.at(0).at(i) = inventory.at(0).at(inventory.at(0).size()-1); 
+          inventory.at(0).at(inventory.at(0).size()-1) = tempItem;
+          inventory.at(0).pop_back();
+          
+          tempWeapon = nullptr;
+          tempItem = nullptr;
+          return;
+        }
+      }
+      cout << "Cannot find " << weapon << endl; 
+      return;
+    }
+    void AddItemTest(Item* item)
+    {
+      if(item->get_item_type() == "Weapon")
+      {
+        inventory.at(0).push_back(item);
+        cout << "Weapon Slot Size: "<< inventory.at(0).size() << endl;
+      }
+      if(item->get_item_type() == "Armor")
+      {
+        inventory.at(1).push_back(item);
+      }
+      if(item->get_item_type() == "Potion")
+      {
+        inventory.at(2).push_back(item);
+      }
+    }
  
 };
 
@@ -223,9 +327,9 @@ class Cleaner : public Player
 public:
     Cleaner()
     {
-      health = 25;
-      power = 8;
-      defense = 3;
+      health = 35;
+      power = 9;
+      defense = 4;
       speed = 7;
       name = "Cleaner";
       mainSkill = new CleanSweep();
@@ -239,7 +343,7 @@ class Firewall : public Player
 public:
     Firewall()
     {
-      health = 35;
+      health = 45;
       power = 5;
       defense = 5;
       speed = 5;
