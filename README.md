@@ -19,18 +19,20 @@ Authors: [Jeffrey Hata](https://github.com/Jeff591), [Cameron Fong](https://gith
  > * Why is it important or interesting to you?
  >   * We find this project interesting because many of us enjoy playing video games and we are interested in the game making process. Some of us have coded text-based games in the past and we want to further our game design and development knowledge.  
  > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
- >   * Language: C++; this is the language that our group is most comfortable with and has the most experience with. Since it is an object oriented programming language, it should help us create objects like enemies, players, items, etc. 
- >   * [Replit](replit.com) - an online IDE that allows programmers to collaborate simultaneously on the same project. This will help make collaboration more efficient if multiple users need to work on the same files. The downside to this program is that the stability of its connection to the server it is hosted on can be unreliable. 
+ >   * Language: C++: this is the language that our group is most comfortable with and has the most experience with. Since it is an object oriented programming language, it should help us create objects like enemies, players, items, etc. 
+ >   * [Replit](replit.com): an online IDE that allows programmers to collaborate simultaneously on the same project. This will help make collaboration more efficient if multiple users need to work on the same files. The downside to this program is that the stability of its connection to the server it is hosted on can be unreliable. 
  >   * [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/): a program that allows programmers to use git commands on their local machine. It also allows programmers to send and receive code from their local repositories, and from Github. 
- >   * [Github](github.com) internet cloud used to store, manage, track, and control changes to projects and their respective code. We are using github in order to store our code onto one location, as well as be able to use the kanban feature on github to track the progress of features in our game 
+ >   * [Github](github.com): internet cloud used to store, manage, track, and control changes to our project and their respective code. We are using github in order to store our code onto one location, as well as be able to use the kanban feature on github to track the progress of features in our game
  >   * [Google Docs](docs.google.com): a text editor that allows live collaboration between multiple users. This program will help us brainstorm ideas, create design documents, and store other resources that might help us in the creation of our game. 
  > * What will be the input/output of your project? What are the features that the project provides?
- >   * Our game is a turned-based RPG game that starts off with the player character being trapped inside a computer due to a powerful computer virus. The goal of the game is to fight your way to the sources of the virus and take it down to free the computer and the player character. 
- >   * The user will input to select and control a premade character that is part of one of three selectable classes. Each class will have superior stats in one category, but have lower stats in another to make the choice meaningful. 
- >   * The user will be able to traverse around a small map that has different areas to visit like towns and dungeons. In towns you can buy items and sell items. In dungeons, the player will be able to fight enemies, gather loot, and progress the story. 
- >   * The user’s character will have an inventory system that can hold different items like potions, key items, etc. 
- >   * The main gameplay will take the form of turn-based battles similar to games like Undertale, Final Fantasy, Pokemon, etc. The user will have a menu of options to select during battle like attack, defend, items, and battle skills. 
- >   * The player character will have stats like health, attack points, defence points, speed points, accuracy points, etc. These stats can be changed through use of weapons, armor, item effects, etc. 
+ >   * Our game is a turned-based RPG that starts off with the player character being trapped inside a computer due to a powerful computer virus. The goal of the game is to fight your way to the sources of the virus and take it down to free the computer and the player character.
+ >   * The user will input to select and control a premade character that is part of one of three selectable classes: Defender, Firewall, and Cleaner. Each class will have superior stats in one category, but have lower stats in another to make the choice meaningful.
+The user will be able to visit towns and dungeons. In towns you can buy items and sell items. In dungeons, the player will be able to fight enemies, gather loot, and progress the story.
+ >   * Between battles in dungeons, the player will have the opportunity to do a variety of actions like checking their character’s stats, checking the current items in their inventory, equipping new armors and weapons, buying or selling at the town, or continuing on to the next battle. 
+ >   * The user’s character will have an inventory system that can hold different items like potions, weapons, and armor.
+ >   * The main gameplay will take the form of turn-based battles similar to games like Undertale, Final Fantasy, Pokemon, etc. The user will have a menu of options to select during battle like attack, items, and battle skills.
+ >   * The player character will have stats like health, attack points, defense points, and speed points. These stats can be changed through use of different armors and weapons.
+
  >  
  > 
 ## Class Diagram
