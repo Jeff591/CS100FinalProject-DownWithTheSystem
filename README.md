@@ -60,14 +60,6 @@ Authors: [Jeffrey Hata](https://github.com/Jeff591), [Cameron Fong](https://gith
  > * Composite Pattern for the ComboSkill Class
  >   * We chose to use the composite pattern along with the strategy pattern to implement the ComboSkill Class so that the player has the ability to use an alternative battle option than just the one skill associated with their character. The ComboSkill class acts as the composite as it is a composition of the SkillSet Class. This allows the ComboSkill class to hold two different SkillSet objects within itself so that the ComboSkill object can have the effect of two different skills at once. The use of the composite pattern made it much easier to implement this mechanic into our game by allowing us to treat the ComboSkill class the same as the other SkillSet classes in other functions like battle(), while also cutting down on repetitive code when trying to put two skills together. 
 
- 
- > ## Final deliverable
- > All group members will give a demo to the TA during lab time. The TA will check the demo and the project GitHub repository and ask a few questions to all the team members. 
- > Before the demo, you should do the following:
- > * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
- > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Project board.
- > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
- 
  ## Screenshots
  >
  > ![Character_Creation](https://user-images.githubusercontent.com/67081225/143794771-c8637156-2b8e-44eb-813b-1d7c942d1479.PNG)
