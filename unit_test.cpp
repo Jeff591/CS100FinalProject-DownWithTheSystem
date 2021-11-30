@@ -8,7 +8,6 @@
 #include "Armor.hpp"
 #include "Item.hpp"
 #include "skillset.hpp"
-#include "town.hpp"
 #include "game.hpp"
 #include <iostream>
 using namespace std;
@@ -65,9 +64,9 @@ TEST(buyConfirmationTest, buyTest)
       player->add_item(item,price);
       break;
    }
-  ASSERT_ANY_THROW(item);
+  item = nullptr;
+  EXPECT_EQ (item, nullptr);
   delete player;
-  delete item;
 }
 
 TEST(buyConfirmationTest, cancelTest){
