@@ -27,7 +27,7 @@ Authors: [Jeffrey Hata](https://github.com/Jeff591), [Cameron Fong](https://gith
  > * What will be the input/output of your project? What are the features that the project provides?
  >   * Our game is a turned-based RPG that starts off with the player character being trapped inside a computer due to a powerful computer virus. The goal of the game is to fight your way to the sources of the virus and take it down to free the computer and the player character.
  >   * The user will input to select and control a premade character that is part of one of three selectable classes: Defender, Firewall, and Cleaner. Each class will have superior stats in one category, but have lower stats in another to make the choice meaningful.
-The user will be able to visit towns and dungeons. In towns you can buy items and sell items. In dungeons, the player will be able to fight enemies, gather loot, and progress the story.
+ >   * The user will be able to visit towns and dungeons. In towns you can buy items and sell items. In dungeons, the player will be able to fight enemies, gather loot, and progress the story.
  >   * Between battles in dungeons, the player will have the opportunity to do a variety of actions like checking their character’s stats, checking the current items in their inventory, equipping new armors and weapons, buying or selling at the town, or continuing on to the next battle. 
  >   * The user’s character will have an inventory system that can hold different items like potions, weapons, and armor.
  >   * The main gameplay will take the form of turn-based battles similar to games like Undertale, Final Fantasy, Pokemon, etc. The user will have a menu of options to select during battle like attack, items, and battle skills.
