@@ -433,6 +433,141 @@ TEST (CharacterTests, GetNameFirewall)
   delete player;
 }
 
+TEST (ItemTests, GetName)
+{
+  Item* item_test = new ByteArmor();
+  EXPECT_EQ (item_test->get_name(), "ByteArmor");
+  delete item_test; 
+}
+
+TEST (ItemTests, GetItemTypeWeapon)
+{
+  Item* item_test = new ByteWeapon();
+  EXPECT_EQ (item_test->get_item_type(), "Weapon");
+  delete item_test;
+}
+
+TEST (ItemTests, GetItemTypeArmor)
+{
+  Item* item_test = new TeraArmor();
+  EXPECT_EQ(item_test->get_item_type(), "Armor");
+  delete item_test;
+}
+
+TEST (ItemTests, GetItemTypePotion)
+{
+  Potion* item_test = new HealthPotion();
+  EXPECT_EQ(item_test->get_item_type(), "Potion");
+  delete item_test;
+}
+
+TEST (WeaponTests, GetSellPrice)
+{
+  Weapon* item_test = new ByteWeapon();
+  EXPECT_EQ (item_test->get_sell_price() , 15);
+  delete item_test;
+}
+
+TEST (WeaponTests, GetWeaponName)
+{
+  Weapon* item_test = new ByteWeapon();
+  EXPECT_EQ(item_test->get_weapon_name(), "ByteWeapon");
+  delete item_test;
+}
+
+TEST (WeaponTests, GetWeaponDescription)
+{
+  Weapon* item_test = new ByteWeapon();
+  EXPECT_EQ(item_test->get_weapon_description(), "Weapon made of a byte of code. It may be a simple weapon, but it does byte!");
+  delete item_test;
+}
+
+TEST (WeaponTests, GetAttack)
+{
+  Weapon* item_test = new ByteWeapon();
+  EXPECT_EQ(item_test->get_attack(), 5);
+  delete item_test;
+}
+
+TEST (ArmorTests, GetSellPrice)
+{
+  Armor* item_test = new ByteArmor();
+  EXPECT_EQ (item_test->get_sell_price() , 15);
+  delete item_test;
+}
+
+TEST (ArmorTests, GetArmorName)
+{
+  Armor* item_test = new ByteArmor();
+  EXPECT_EQ(item_test->get_armor_name(), "ByteArmor");
+  delete item_test;
+}
+
+TEST (ArmorTests, GetArmorDescription)
+{
+  Armor* item_test = new ByteArmor();
+  EXPECT_EQ(item_test->get_armor_description(), "Armor made of a byte of code. Probably too thin to be proper armor but its better than nothing!");
+  delete item_test;
+}
+
+TEST (ArmorTests, GetDefense)
+{
+  Armor* item_test = new ByteArmor();
+  EXPECT_EQ(item_test->get_defense(), 5);
+  delete item_test;
+}
+
+TEST (PotionTests, GetSellPrice)
+{
+  Potion* item_test = new HealthPotion();
+  EXPECT_EQ (item_test->get_sell_price() , 5);
+  delete item_test;
+}
+
+TEST (PotionTests, GetPotionName)
+{
+  Potion* item_test = new HealthPotion();
+  EXPECT_EQ(item_test->get_potion_name(), "HealthPotion");
+  delete item_test;
+}
+
+TEST (PotionTests, GetPotionDescription)
+{
+  Potion* item_test = new HealthPotion();
+  EXPECT_EQ(item_test->get_potion_description(), "A nice drink filled to the brim with dihydrogen monoxide or as you people call it, water. It'll replenish you well.");
+  delete item_test;
+}
+
+TEST (PotionTests, GetAlter)
+{
+  Potion* item_test = new HealthPotion();
+  EXPECT_EQ(item_test->get_alter(), 15);
+  delete item_test;
+}
+
+TEST (PotionTests, GetType)
+{
+  Potion* item_test = new HealthPotion();
+  EXPECT_EQ(item_test->get_type(), "Health");
+  delete item_test;
+}
+
+TEST (PlayerTests, AddItem)
+{
+  Player* player = new Defender();
+  player->add_item(new ByteWeapon(), 0);
+  EXPECT_EQ (player->get_inventory()->at(0).size(), 1);
+  delete player;
+}
+
+TEST (PlayerTest, RemoveItem)
+{
+  Player* player = new Defender();
+  player->add_item(new ByteWeapon(), 0);
+  player->remove_item(player->get_inventory()->at(0).at(0), 15);
+  EXPECT_EQ (player->get_inventory()->at(0).size(), 0);
+  delete player;
+}
 
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);
