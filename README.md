@@ -105,8 +105,9 @@ Authors: [Jeffrey Hata](https://github.com/Jeff591), [Cameron Fong](https://gith
  > 2. Once the directory is downloaded, run the commands "cmake3 ." and "make" to create the main executable.
  > 3. Once the executable is made, put in "./main" into the command-line and enjoy!
  ## Testing
- > * We created unit tests using googletest to check our functions. The functions we decided to include in our testing were mostly getter functions as well as setter functions.
+ > * We created unit tests using googletest to check our functions after we finished portions of the game like the battle features and shopping features, or when we finsihed creating classes. The functions we decided to include in our testing were mostly getter functions as well as setter functions because they provided the backbone of most of our features. 
  > * Functions that mainly served to output text to the console or took in user input were not tested through googletest but instead tested manually through playing the game several times to make sure the inputs were read correctly and the ouput was what we expected.
+ > * Through our playtesting, we also looked for memory leaks within our program by testing every possible action that the user could put into our program. We were able to find many errors in our code this way and were able to come up with more efficient methods of coding some algorithms. 
  > 
  > ![unit_test](https://user-images.githubusercontent.com/66803305/143986836-9f8d393e-90b8-486d-80b5-ef80e6b8e221.PNG)
  > * 57 unit tests total
