@@ -34,7 +34,7 @@ Authors: [Jeffrey Hata](https://github.com/Jeff591), [Cameron Fong](https://gith
  >  
  > 
 ## Class Diagram
- > ![Phase II_ UML Diagram](https://user-images.githubusercontent.com/66803305/144089031-360504d1-f71e-4f4c-8e0b-26862ca29aeb.png)
+ > ![Phase II_ UML Diagram](https://user-images.githubusercontent.com/66803305/144090267-2b10d5f9-b88a-4af5-b782-b099268d099e.png)
  > [UML Diagram](https://lucid.app/publicSegments/view/65744f78-3fde-48ce-ae6d-6c075e1613d7/image.jpeg)
  > * Game class: The game client runs the main function of our program runGame(). It also contains functions like battle(), intermission(), and create_character() that will act as the core features of the game. The game class also includes private members for the 5 dungeons, player character, the town, and a bool variable gameOver to signify when the game is ended. 
  > * Player class: The player class includes several private members including a vector of vector of items to represent the inventory with a composition connection to the items class, a composition connection to skillset to represent a unique skill each type of character will have, int money to represent money the player has, and currentWeapon and currentArmor pointers to represent which weapon/armor respectively the player current has. The player class also has several public member functions which include attack() which is calculates how much damage the opponent takes based on the player’s power + current weapon - enemy defense, set_current_armor() and set_current_weapon() which selects what weapon currentWeapon and what armor currentArmor will store, and check_stats() to see the player’s health, power, defense, and speed. Some other functions include display_inventory() which shows the user the current inventory, add_item() which is used when the player buys an item, remove_item() when the player sells an item, and other getter functions to get access to protected members. The Player class acts as the parent class of the different player character classes that the user will choose to play as. These classes include Defender, Cleaner, and Firewall which all come with their own unique stats and skills. 
@@ -51,7 +51,7 @@ Authors: [Jeffrey Hata](https://github.com/Jeff591), [Cameron Fong](https://gith
 > 
  
  > ## Phase III
- > ![Phase II_ UML Diagram](https://user-images.githubusercontent.com/66803305/144089031-360504d1-f71e-4f4c-8e0b-26862ca29aeb.png)
+ > ![Phase II_ UML Diagram](https://user-images.githubusercontent.com/66803305/144090267-2b10d5f9-b88a-4af5-b782-b099268d099e.png)
  > [UML Diagram](https://lucid.app/publicSegments/view/65744f78-3fde-48ce-ae6d-6c075e1613d7/image.jpeg)
  > * Strategy Pattern for the SkillSet Classes
  >   * We chose to use the strategy pattern to help implement the SkillSet classes because we wanted the player to be able to select their battle skills depending on the character they chose. The SkillSet class acts as the abstract strategy and gives the interface to its derived classes which each act as concrete strategies. This design pattern helped us write better code by allowing us to better organize the skills we want to implement and expand the number of skills if we want to in the future. It also made it easier for certain character classes to have their own unique battle options.
